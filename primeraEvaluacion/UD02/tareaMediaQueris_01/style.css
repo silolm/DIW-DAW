@@ -1,0 +1,13 @@
+.imagen {
+    display: block;
+    margin: auto;
+}
+
+@media (min-width:600px) {
+    .nav-item {
+        display: inline;
+    }
+    .nav {
+        text-align: center;
+    }
+}
