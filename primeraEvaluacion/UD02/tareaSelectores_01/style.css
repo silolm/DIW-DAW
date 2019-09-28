@@ -1,0 +1,41 @@
+@media (max-width: 600px) {
+    li{
+        height: 200px;
+        width: 100%;
+        display: block;
+        float: left;
+    }
+}
+
+@media (min-width: 600px) {
+    li{
+        height: 200px;
+        width: 33%;
+        display: block;
+        float: left;
+    }
+}
+
+body {
+    background-color: darkgray;
+}
+
+:root {
+    --colorLINKS: black;
+}
+
+a[rel='links'] {
+    color: var(--colorLINKS);
+    text-decoration: none;
+    font-size: larger;
+    font-family: "Arial Black";
+}
+
+ul {
+    text-align: left;
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 50px;
+}
