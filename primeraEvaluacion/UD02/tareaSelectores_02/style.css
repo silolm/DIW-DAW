@@ -1,0 +1,9 @@
+li:nth-of-type(2n+2):hover::before {
+    color: limegreen;
+    content: "Alabado sea el Monstruo Espagetti Volador ";
+}
+
+li:nth-of-type(2n+3):hover::after, li:first-child:hover::after {
+    color: red;
+    content: " SATÁN!";
+}
