@@ -1,0 +1,39 @@
+@media (min-width: 700px) {
+
+}
+
+.logo {
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+}
+
+.menu-it {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+li a {
+    text-decoration: none;
+    color: limegreen;
+    text-transform: uppercase;
+}
+
+p {
+    text-transform: uppercase;
+}
+
+header {
+    background-color: #e5e5e5;
+}
+
+.modulo {
+    background-color: #e5e5e5;
+
+}
+
+.modulo:nth-of-type(2n+3) {
+    background-color: white;
+}
