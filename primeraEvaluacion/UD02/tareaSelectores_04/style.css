@@ -17,6 +17,19 @@ input[type='text'], input[type='number'] {
     background-color: bisque;
 }
 
+.showHidden {
+    visibility: hidden;
+    width: 50px;
+    height: 50px;
+    float: right;
+    margin-right: 520px;
+}
+
+input[type='checkbox']:checked ~ .showHidden {
+    visibility: visible;
+}
+
+
 input[type='submit'] {
     appearance: none;
     outline: 0;
