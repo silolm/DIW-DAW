@@ -1,8 +1,8 @@
 /*Colores*/
 :root {
-    --yellow: #ffc600;
-    --black: #272727;
-    --grey: #A1A1A1;
+    --celdas__Personajes__Yema: #ffc600;
+    --color__Texto__Negro: #000000;
+    --celdas__NumeroDePersonaje: #A1A1A1;
 }
 
 html {
@@ -12,7 +12,7 @@ html {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-weight: 900;
     font-size: 10px;
-    color: var(--black);
+    color: var(--color__Texto__Negro);
     text-shadow: 0 2px 0 rgba(0, 0, 0, 0.07);
 }
 
@@ -59,7 +59,7 @@ h6 {
     border: 5px solid rgba(0, 0, 0, 0.03);
     border-radius: 3px;
     font-size: 35px;
-    background-color: var(--yellow);
+    background-color: var(--celdas__Personajes__Yema);
     /* best colour */
 }
 

@@ -18,15 +18,15 @@
  y aplicar el hover*/
 
 .item:nth-child(odd) {
-    background-color: var(--grey);
+    background-color: var(--celdas__NumeroDePersonaje);
 }
 
 .item:nth-child(odd):hover {
-    box-shadow: 3px 4px 5px black;
+    box-shadow: 7px 8px 9px rgba(1,1,1,0.4);
 }
 
 .item:nth-child(odd):hover + .item:nth-child(even) {
-    box-shadow: 3px 4px 5px black;
+    box-shadow: 7px 8px 9px rgba(1,1,1,0.4);
 }
 
 /*sello xulupolla y centrar H1*/
