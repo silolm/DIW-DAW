@@ -1,3 +1,5 @@
+/*organizar elementos*/
+
 .container {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr 2fr;
@@ -9,4 +11,20 @@
 
 .item2 {
     grid-column: span 3;
+}
+
+/*colorear de gris las etiquetas numericas,
+ sombrear 
+ y aplicar el hover*/
+
+.item:nth-child(odd) {
+    background-color: var(--grey);
+}
+
+.item:nth-child(odd):hover {
+    box-shadow: 3px 4px 5px black;
+}
+
+.item:nth-child(odd):hover + .item:nth-child(even) {
+    box-shadow: 3px 4px 5px black;
 }
