@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/DIW-DAW.iml" filepath="$PROJECT_DIR$/.idea/DIW-DAW.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../DWEC-DAW/.idea/DWEC-DAW.iml" filepath="$PROJECT_DIR$/../DWEC-DAW/.idea/DWEC-DAW.iml" />
     </modules>
   </component>
 </project>

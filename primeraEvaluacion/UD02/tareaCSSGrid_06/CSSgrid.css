@@ -32,15 +32,12 @@
 /*sello xulupolla y centrar H1*/
 
 #SealOfApproval {
+    background-image: url("cthulhu_approval.gif");
+    position: fixed;
+    right: 1px;
+    bottom: 1px;
     width: 100px;
     height: 100px;
-
-    background-image: url("cthulhu_approval.gif");
-    background-size: 150%;
-    background-repeat: no-repeat;
-
-    position: fixed;
-    justify-self: end
 }
 
 h1 {
