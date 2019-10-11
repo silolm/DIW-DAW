@@ -1,0 +1,12 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 2fr;
+}
+
+.item {
+    margin: 10px;
+}
+
+.item2 {
+    grid-column: span 3;
+}
