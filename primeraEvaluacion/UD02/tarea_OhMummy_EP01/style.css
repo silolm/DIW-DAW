@@ -27,3 +27,7 @@ body{
 .personaje{
     content: url("images/estaticoIzquierdo.gif");
 }
+
+.personajeDerecho{
+    content: url("images/estatico.gif");
+}

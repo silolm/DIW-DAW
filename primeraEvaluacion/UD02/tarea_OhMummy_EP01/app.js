@@ -19,7 +19,6 @@ function crearMapa() {
             div.classList.add('personaje');
         }
 
-        // mapa[z] = div;
         mapa[0][z] = div;
         juego.appendChild(div);
     }
@@ -33,9 +32,6 @@ function crearMapa() {
                 div.classList.add('pasillo');
             else
                 div.classList.add('celda');
-
-            let x = div.dataset.x = i;
-            let y = div.dataset.y = j;
 
             mapa[i][j] = div;
             juego.appendChild(div);
@@ -52,20 +48,52 @@ function moverAbajo() {
     let posY = personaje.y + 1;
     let posX = personaje.x;
 
-    if (isValid(posY, posX)) {
-        // Eliminar anterior posicion
-        mapa[personaje.y][personaje.x].classList.remove('personaje');
-        // Renovar
-        personaje.x = posX;
-        personaje.y = posY;
-        mapa[personaje.y][personaje.x].classList.add('personaje');
-    }
+    if (posY <= 13 && esValido(posY, posX))
+        mover(posY, posX);
+}
 
+function moverArriba() {
+
+    let posY = personaje.y - 1;
+    let posX = personaje.x;
+
+    if (posY >= 0 && esValido(posY, posX))
+        mover(posY, posX);
+}
+
+function moverDerecha() {
+
+    let posY = personaje.y;
+    let posX = personaje.x + 1;
+
+    if (posX <= 20 && esValido(posY, posX))
+        mover(posY, posX);
+}
+
+function moverIzquierda() {
+
+    let posY = personaje.y;
+    let posX = personaje.x - 1;
+
+    if (posX >= 0 && esValido(posY, posX))
+        mover(posY, posX);
+}
+
+function mover(posY, posX) {
+
+    console.log(posX);
+    console.log(posY);
+    // Eliminar anterior posicion
+    mapa[personaje.y][personaje.x].classList.remove('personaje');
+    // Renovar
+    personaje.x = posX;
+    personaje.y = posY;
+    mapa[personaje.y][personaje.x].classList.add('personaje');
 
 }
 
-function isValid(posY, posX) {
-
+function esValido(y, x) {
+    return mapa[y][x].classList.contains("pasillo");
 }
 
 window.addEventListener('keydown', (event) => {
@@ -81,10 +109,3 @@ window.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowLeft')
         moverIzquierda();
 });
-
-
-
-
-
-
-
