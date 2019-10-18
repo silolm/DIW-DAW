@@ -31,3 +31,7 @@ body{
 .personajeDerecho{
     content: url("images/estatico.gif");
 }
+
+.enemigo{
+    content: url("images/Momia-Metal-Slug.gif");
+}

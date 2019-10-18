@@ -33,6 +33,9 @@ function crearMapa() {
             else
                 div.classList.add('celda');
 
+            // if (i === 1 && j === 6)
+            //     div.classList.add('enemigo');
+
             mapa[i][j] = div;
             juego.appendChild(div);
         }
@@ -41,7 +44,20 @@ function crearMapa() {
 
 crearMapa();
 
+
 console.log(mapa);
+
+function comprobarMuro() {
+
+    let posY = personaje.y;
+    let posX = personaje.x;
+
+    if (posY <= 12 && mapa[posY + 1][posX].className.indexOf('celda') >= 0) mapa[posY + 1][posX].classList.add('X');
+    if (posY > 0 && mapa[posY - 1][posX].className.indexOf('celda') >= 0) mapa[posY - 1][posX].classList.add('X');
+    if (posX <= 19 && mapa[posY][posX + 1].className.indexOf('celda') >= 0) mapa[posY][posX + 1].classList.add('X');
+    if (posX > 0 && mapa[posY][posX - 1].className.indexOf('celda') >= 0) mapa[posY][posX - 1].classList.add('X');
+
+}
 
 function moverAbajo() {
 
@@ -89,6 +105,8 @@ function mover(posY, posX) {
     personaje.x = posX;
     personaje.y = posY;
     mapa[personaje.y][personaje.x].classList.add('personaje');
+
+    comprobarMuro();
 
 }
 
