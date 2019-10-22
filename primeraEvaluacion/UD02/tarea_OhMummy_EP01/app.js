@@ -47,58 +47,66 @@ crearMapa();
 
 console.log(mapa);
 
-function comprobarMuro() {
+function marcarMuro() {
 
     let posY = personaje.y;
     let posX = personaje.x;
 
-    if (posY <= 12 && mapa[posY + 1][posX].className.indexOf('celda') >= 0) mapa[posY + 1][posX].classList.add('X');
-    if (posY > 0 && mapa[posY - 1][posX].className.indexOf('celda') >= 0) mapa[posY - 1][posX].classList.add('X');
-    if (posX <= 19 && mapa[posY][posX + 1].className.indexOf('celda') >= 0) mapa[posY][posX + 1].classList.add('X');
-    if (posX > 0 && mapa[posY][posX - 1].className.indexOf('celda') >= 0) mapa[posY][posX - 1].classList.add('X');
+    if (posY <= 12 && mapa[posY + 1][posX].className.indexOf('celda') >= 0) {
+        mapa[posY + 1][posX].classList.add('X');
+        desbloquearCelda(posY + 1, posX);
+    }
+    if (posY > 0 && mapa[posY - 1][posX].className.indexOf('celda') >= 0) {
+        mapa[posY - 1][posX].classList.add('X');
+        desbloquearCelda(posY - 1, posX);
+    }
+    if (posX <= 19 && mapa[posY][posX + 1].className.indexOf('celda') >= 0) {
+        mapa[posY][posX + 1].classList.add('X');
+        desbloquearCelda(posY, posX + 1);
+    }
+    if (posX > 0 && mapa[posY][posX - 1].className.indexOf('celda') >= 0) {
+        mapa[posY][posX - 1].classList.add('X');
+        desbloquearCelda(posY, posX - 1);
+    }
+}
+
+function desbloquearCelda(y, x) {
 
 }
 
 function moverAbajo() {
-
     let posY = personaje.y + 1;
     let posX = personaje.x;
 
-    if (posY <= 13 && esValido(posY, posX))
-        mover(posY, posX);
+    mover(posY, posX);
 }
 
 function moverArriba() {
-
     let posY = personaje.y - 1;
     let posX = personaje.x;
 
-    if (posY >= 0 && esValido(posY, posX))
-        mover(posY, posX);
+    mover(posY, posX);
 }
 
 function moverDerecha() {
-
     let posY = personaje.y;
     let posX = personaje.x + 1;
 
-    if (posX <= 20 && esValido(posY, posX))
-        mover(posY, posX);
+    mover(posY, posX);
 }
 
 function moverIzquierda() {
-
     let posY = personaje.y;
     let posX = personaje.x - 1;
 
-    if (posX >= 0 && esValido(posY, posX))
-        mover(posY, posX);
+    mover(posY, posX);
 }
 
 function mover(posY, posX) {
-
     console.log(posX);
     console.log(posY);
+
+    if (!esValido(posY, posX)) return;
     // Eliminar anterior posicion
     mapa[personaje.y][personaje.x].classList.remove('personaje');
     // Renovar
@@ -106,12 +114,12 @@ function mover(posY, posX) {
     personaje.y = posY;
     mapa[personaje.y][personaje.x].classList.add('personaje');
 
-    comprobarMuro();
+    marcarMuro();
 
 }
 
-function esValido(y, x) {
-    return mapa[y][x].classList.contains("pasillo");
+function esValido(posY, posX) {
+    return posX >= 0 && posX <= 20 && posY >= 0 && posY <= 13 && mapa[posY][posX].classList.contains("pasillo");
 }
 
 window.addEventListener('keydown', (event) => {
