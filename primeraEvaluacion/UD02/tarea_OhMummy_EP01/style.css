@@ -21,7 +21,7 @@
 }
 
 body {
-    background-image: url("images/fondoBody.jpg");
+    background-image: url("images/fondo.png");
     background-size: 100vw 100vh;
     background-attachment: fixed;
     margin: 0;
