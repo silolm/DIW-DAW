@@ -83,7 +83,7 @@ function comprobarCeldas(y, x) {
     let fuera = false;
 
     for (let i = 0; i < 6 && !fuera; i++) {
-        //**********************************LATERALES************************************
+        //**********************************LATERALES**********************************
 
         //izquierdo
         if (mapa[y][x - 1].classList.contains('celda') && mapa[y][x - 1].classList.contains('X')) {
@@ -163,9 +163,13 @@ function mover(posY, posX) {
     // Eliminar anterior posicion
     mapa[personaje.y][personaje.x].classList.remove('personaje');
     // Renovar
+    mapa[personaje.y][personaje.x].classList.add('huella');
     personaje.x = posX;
     personaje.y = posY;
     mapa[personaje.y][personaje.x].classList.add('personaje');
+
+
+
 
     marcarCeldas();
 }
