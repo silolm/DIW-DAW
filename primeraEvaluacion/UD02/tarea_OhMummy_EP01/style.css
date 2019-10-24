@@ -28,7 +28,15 @@ body {
 }
 
 .personaje {
-    content: url("images/bb8.gif") !important;
+    content: url("images/bb8Der.gif") !important;
+}
+
+.personajeIzquierda {
+    content: url("images/bb8Izq.gif") !important;
+}
+
+.personajeAbajo {
+    content: url("images/bb8Aba.gif") !important;
 }
 
 .enemigo {

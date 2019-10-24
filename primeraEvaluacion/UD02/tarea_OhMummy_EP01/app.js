@@ -127,33 +127,41 @@ function moverAbajo() {
     let posY = personaje.y + 1;
     let posX = personaje.x;
 
-    if (posY <= 13 && esValido(posY, posX))
+    if (posY <= 13 && esValido(posY, posX)) {
         mover(posY, posX);
+        mapa[personaje.y][personaje.x].classList.add('personajeAbajo');
+
+    }
 }
 
 function moverArriba() {
     let posY = personaje.y - 1;
     let posX = personaje.x;
 
-    if (posY >= 0 && esValido(posY, posX))
+    if (posY >= 0 && esValido(posY, posX)) {
         mover(posY, posX);
+        mapa[personaje.y][personaje.x].classList.add('personaje');
+    }
 }
 
 function moverDerecha() {
     let posY = personaje.y;
     let posX = personaje.x + 1;
 
-    if (posX <= 20 && esValido(posY, posX))
+    if (posX <= 20 && esValido(posY, posX)) {
         mover(posY, posX);
-
+        mapa[personaje.y][personaje.x].classList.add('personaje');
+    }
 }
 
 function moverIzquierda() {
     let posY = personaje.y;
     let posX = personaje.x - 1;
 
-    if (posX >= 0 && esValido(posY, posX))
+    if (posX >= 0 && esValido(posY, posX)) {
         mover(posY, posX);
+        mapa[personaje.y][personaje.x].classList.add('personajeIzquierda');
+    }
 }
 
 function mover(posY, posX) {
@@ -161,15 +169,11 @@ function mover(posY, posX) {
     console.log(posY);
 
     // Eliminar anterior posicion
-    mapa[personaje.y][personaje.x].classList.remove('personaje');
+    mapa[personaje.y][personaje.x].classList.remove('personaje','personajeIzquierda','personajeAbajo');
     // Renovar
     mapa[personaje.y][personaje.x].classList.add('huella');
     personaje.x = posX;
     personaje.y = posY;
-    mapa[personaje.y][personaje.x].classList.add('personaje');
-
-
-
 
     marcarCeldas();
 }
