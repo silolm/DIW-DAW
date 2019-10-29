@@ -48,7 +48,9 @@ body {
 }
 
 .pergamino {
-    background-image: url("images/jedi.png");
+    content: url("images/jedi.png");
+    width: 40px;
+    height: 40px;
 }
 
 .urna {
@@ -58,7 +60,9 @@ body {
 }
 
 .llave {
-    background-image: url("images/darthVader.png");
+    content: url("images/darthVader.png");
+    width: 40px;
+    height: 40px;
 }
 
 .null{

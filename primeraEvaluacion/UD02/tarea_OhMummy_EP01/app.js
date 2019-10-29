@@ -38,8 +38,8 @@ function crearMapa() {
             else
                 div.classList.add('celda');
 
-// if (i === 1 && j === 6)
-// div.classList.add('enemigo');
+            // if (i === 1 && j === 6)
+            // div.classList.add('enemigo');
 
             mapa[i][j] = div;
             juego.appendChild(div);
@@ -54,40 +54,55 @@ function marcarCeldas() {
     let posY = personaje.y;
     let posX = personaje.x;
 
-    if (posY <= 12 && mapa[posY + 1][posX].className.indexOf('celda') >= 0) {
+    if (posY <= 12 && mapa[posY + 1][posX].className.indexOf('celda') >= 0)
         mapa[posY + 1][posX].classList.add('X');
-    }
-    if (posY > 0 && mapa[posY - 1][posX].className.indexOf('celda') >= 0) {
+
+    if (posY > 0 && mapa[posY - 1][posX].className.indexOf('celda') >= 0)
         mapa[posY - 1][posX].classList.add('X');
-    }
-    if (posX <= 19 && mapa[posY][posX + 1].className.indexOf('celda') >= 0) {
+
+    if (posX <= 19 && mapa[posY][posX + 1].className.indexOf('celda') >= 0)
         mapa[posY][posX + 1].classList.add('X');
-    }
-    if (posX > 0 && mapa[posY][posX - 1].className.indexOf('celda') >= 0) {
+
+    if (posX > 0 && mapa[posY][posX - 1].className.indexOf('celda') >= 0)
         mapa[posY][posX - 1].classList.add('X');
-    }
+
 
     llamada(posY, posX);
 }
 
 function inicializarCeldas() {
     let urnaAl = [(Math.random().toFixed(2) * 100) % 5, (Math.random().toFixed(2) * 100) % 4];
+    let llaveAl = [];
+    let pergaminoAl = [];
+    do {
+        llaveAl = [(Math.random().toFixed(2) * 100) % 5, (Math.random().toFixed(2) * 100) % 4];
+    } while (llaveAl === urnaAl);
+    do {
+        pergaminoAl = [(Math.random().toFixed(2) * 100) % 5, (Math.random().toFixed(2) * 100) % 4];
+    } while (pergaminoAl === urnaAl || pergaminoAl === llaveAl);
 
     for (let i = 0; i < 5; i++) {
         celdas[i] = [];
-        for (let j = 0; j < 4; j++)
+        for (let j = 0; j < 4; j++) {
+            let tipo = "null";
+
+            if (i === urnaAl[0] && j === urnaAl[1]) tipo = "urna"
+            if (i === llaveAl[0] && j === llaveAl[1]) tipo = "llave"
+            if (i === pergaminoAl[0] && j === pergaminoAl[1]) tipo = "pergamino"
+
             celdas[i][j] = {
                 x: i * 4,
                 y: 1 + (3 * j),
-                tipo: i === urnaAl[0] && j === urnaAl[1] ? "urna" : "null",
+                tipo: tipo,
                 estaDescubierta: false
             };
+        }
     }
 }
 
 function comprobarCeldas(celda) {
     if (celdas[celda.x / 4][(celda.y - 1) / 3].estaDescubierta === true) return;
-//Pasamos la posición del muro
+    //Pasamos la posición del muro
     let posX = celda.x;
     let posY = celda.y;
     let contador = 0;
@@ -114,11 +129,9 @@ function comprobarCeldas(celda) {
 
 function desbloquearCelda(celda) {
     celdas[celda.x / 4][(celda.y - 1) / 3].estaDescubierta = true;
-    for (let i = 1; i < 4; i++) {
-        for (let j = 1; j < 3; j++) {
+    for (let i = 1; i < 4; i++)
+        for (let j = 1; j < 3; j++)
             mapa[celda.y + j][celda.x + i].classList.add(celda.tipo);
-        }
-    }
 }
 
 function llamada(posY, posX) {
@@ -199,9 +212,9 @@ function mover(posY, posX) {
     console.log(posX);
     console.log(posY);
 
-// Eliminar anterior posicion
+    // Eliminar anterior posicion
     mapa[personaje.y][personaje.x].classList.remove('personaje', 'personajeIzquierda', 'personajeAbajo');
-// Renovar
+    // Renovar
     mapa[personaje.y][personaje.x].classList.add('huella');
     personaje.x = posX;
     personaje.y = posY;
