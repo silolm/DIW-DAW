@@ -8,6 +8,11 @@ let pergamino = false;
 let llave = false;
 let urna = false;
 
+let enemigo = {
+    y: 0,
+    x: 8
+};
+
 
 function crearMapa() {
     let juego = document.querySelector('.juego');
@@ -46,6 +51,7 @@ function crearMapa() {
         }
     }
     inicializarCeldas();
+    crearMomia()
 }
 
 crearMapa();
@@ -86,9 +92,9 @@ function inicializarCeldas() {
         for (let j = 0; j < 4; j++) {
             let tipo = "null";
 
-            if (i === urnaAl[0] && j === urnaAl[1]) tipo = "urna"
-            if (i === llaveAl[0] && j === llaveAl[1]) tipo = "llave"
-            if (i === pergaminoAl[0] && j === pergaminoAl[1]) tipo = "pergamino"
+            if (i === urnaAl[0] && j === urnaAl[1]) tipo = "urna";
+            if (i === llaveAl[0] && j === llaveAl[1]) tipo = "llave";
+            if (i === pergaminoAl[0] && j === pergaminoAl[1]) tipo = "pergamino";
 
             celdas[i][j] = {
                 x: i * 4,
@@ -165,6 +171,65 @@ function llamada(posY, posX) {
             comprobarCeldas(celdas[Math.trunc((posX - 4) / 4)][Math.trunc((posY - 1) / 3)]);
         }
     }
+}
+
+function crearMomia() {
+    var newX = 0;
+    var newY = 0;
+    while (!mapa[newY][newX].classList.contains("pasillo")) {
+        newX = Math.floor(Math.random() * 20);
+        newY = Math.floor(Math.random() * 12);
+    }
+    mapa[newY][newX].classList.add("enemigo");
+
+    enemigo.x = newX;
+    enemigo.y = newY;
+    setInterval(moverMomia, 300);
+}
+
+function moverMomia() {
+    console.log("entra");
+    //calcular una nueva posición adyacente a la momia, y que contenga camino.
+    let direccion = 0;
+    var newX = 0;
+    var newY = 0;
+    while (!mapa[newY][newX].classList.contains("pasillo")) {
+        direccion = Math.floor(Math.random() * 3);
+        switch (direccion) {
+            case 0: //arriba
+                if (enemigo.y >= 0) {
+                    newX = enemigo.x;
+                    newY = enemigo.y - 1;
+                }
+                break;
+            case 1: //abajo
+                if (enemigo.y <= 13) {
+                    newX = enemigo.x;
+                    newY = enemigo.y + 1;
+                }
+                break;
+            case 2: //izquierda
+                if (enemigo.x >= 0) {
+                    newX = enemigo.x - 1;
+                    newY = enemigo.y;
+                }
+                break;
+            case 3: //derecha
+                if (enemigo.x <= 20) {
+                    newX = enemigo.x + 1;
+                    newY = enemigo.y;
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    mapa[enemigo.y][enemigo.x].classList.remove("enemigo");
+    enemigo.x = newX;
+    enemigo.y = newY;
+    mapa[enemigo.y][enemigo.x].classList.add("enemigo");
+
 }
 
 // Movimientos

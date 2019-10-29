@@ -41,6 +41,8 @@ body {
 
 .enemigo {
     content: url("images/Momia-Metal-Slug.gif");
+    width: 40px;
+    height: 40px;
 }
 
 .huella {
