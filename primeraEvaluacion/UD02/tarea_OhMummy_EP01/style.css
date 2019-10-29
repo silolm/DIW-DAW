@@ -44,5 +44,5 @@ body {
 }
 
 .huella {
-    content: url("images/disparo.png");
+    content: url("images/disparo.png") ;
 }

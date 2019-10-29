@@ -1,8 +1,9 @@
 let mapa = [];
 let celdas = [];
-let personaje = {};
-personaje.y = 0;
-personaje.x = 8;
+let personaje = {
+    y: 0,
+    x: 8
+};
 
 function crearMapa() {
     let juego = document.querySelector('.juego');
@@ -40,15 +41,7 @@ function crearMapa() {
             juego.appendChild(div);
         }
     }
-
-    //inicializamos celdas
-    for (let i = 0; i <= 19; i++)
-        celdas[i] = [(i * 4) + 1];
-
-    //  conseguir la esquina izquierda-arriba de cada caja y crear un ARRAY que las almacene de forma que por Ej.: la CELDA[6] es la primera caja
-    //  de la segunda fila y las cordenadas que contendria seria: [0,4]
-
-
+    inicializarCeldas();
 }
 
 crearMapa();
@@ -59,68 +52,62 @@ function marcarCeldas() {
 
     if (posY <= 12 && mapa[posY + 1][posX].className.indexOf('celda') >= 0) {
         mapa[posY + 1][posX].classList.add('X');
-        comprobarCeldas(posY + 1, posX);
+        llamada(posY + 1, posX);
     }
     if (posY > 0 && mapa[posY - 1][posX].className.indexOf('celda') >= 0) {
         mapa[posY - 1][posX].classList.add('X');
-        comprobarCeldas(posY - 1, posX);
+        llamada(posY - 1, posX);
     }
     if (posX <= 19 && mapa[posY][posX + 1].className.indexOf('celda') >= 0) {
         mapa[posY][posX + 1].classList.add('X');
-        comprobarCeldas(posY, posX + 1);
+        llamada(posY, posX + 1);
     }
     if (posX > 0 && mapa[posY][posX - 1].className.indexOf('celda') >= 0) {
         mapa[posY][posX - 1].classList.add('X');
-        comprobarCeldas(posY, posX - 1);
+        llamada(posY, posX - 1);
     }
 }
 
-function comprobarCeldas(y, x) {
+function comprobarCeldas(celda) {
     //Pasamos la posición del muro
-    let posX = x;
-    let posY = y;
+    let posX = celda.x;
+    let posY = celda.y;
     let contador = 0;
-    let fuera = false;
 
-    for (let i = 0; i < 6 && !fuera; i++) {
-        //**********************************LATERALES**********************************
-
-        //izquierdo
-        if (mapa[y][x - 1].classList.contains('celda') && mapa[y][x - 1].classList.contains('X')) {
-            x--;
-            contador++;
-        }
-        //derecho
-        if (mapa[y][x + 1].classList.contains('celda') && mapa[y][x + 1].classList.contains('X')) {
-            x++;
-            contador++;
-        }
-        //arriba
-        if (mapa[y - 1][x].classList.contains('celda') && mapa[y - 1][x].classList.contains('X')) {
-            y--;
-            contador++;
-        }
-        //abajo
-        if (mapa[y + 1][x].classList.contains('celda') && mapa[y + 1][x].classList.contains('X')) {
-            y++;
-            contador++;
-        }
-
-        //**********************************ESQUINAS**********************************
-
-        // arriba-izquierda
-        if (mapa[y - 1][x - 1].classList.contains('celda') && mapa[y - 1][x - 1].classList.contains('X')) {
-            y++;
+    for (let i = 0; i < 5; i++) {
+        if (mapa[posY][posX].classList.contains('X')) {
+            posX--;
             contador++;
         }
     }
-    if (contador === 6)
-        desbloquearCelda(posY, posX);
 
+    posX = celda.x;
+
+    for (let i = 0; i < 4; i++) {
+        if (mapa[posY][posX].classList.contains('X')) {
+            posY--;
+            contador++;
+        }
+    }
+
+    if (contador === 9)
+        desbloquearCelda(celda);
 }
 
-function desbloquearCelda(y, x) {
-    alert("Me corro en tu boca");
+function desbloquearCelda(celda) {
+    alert(celda);
+}
+
+function inicializarCeldas() {
+    for (let i = 0; i < 5; i++) {
+        celdas[i] = [];
+        for (let j = 0; j < 4; j++)
+            celdas[i][j] = {
+                x: i * 4,
+                y: 1 + (3 * j),
+                tipo: "null"
+            };
+    }
 }
 
 function moverAbajo() {
@@ -130,7 +117,6 @@ function moverAbajo() {
     if (posY <= 13 && esValido(posY, posX)) {
         mover(posY, posX);
         mapa[personaje.y][personaje.x].classList.add('personajeAbajo');
-
     }
 }
 
@@ -169,7 +155,7 @@ function mover(posY, posX) {
     console.log(posY);
 
     // Eliminar anterior posicion
-    mapa[personaje.y][personaje.x].classList.remove('personaje','personajeIzquierda','personajeAbajo');
+    mapa[personaje.y][personaje.x].classList.remove('personaje', 'personajeIzquierda', 'personajeAbajo');
     // Renovar
     mapa[personaje.y][personaje.x].classList.add('huella');
     personaje.x = posX;
@@ -196,9 +182,7 @@ window.addEventListener('keydown', (event) => {
         moverIzquierda();
 });
 
-function llamada() {
-    let posX = personaje.x;
-    let posY = personaje.y;
+function llamada(posY, posX) {
 
     if ((posX === 0 || posX === 20 || posX % 4 === 0) && (posY === 1 || posY === 13 || (posY - 1) % 3 === 0)) {
         if ((posX === 0 || posX === 20) && (posY === 1 || posY === 13)) {
@@ -209,7 +193,10 @@ function llamada() {
             } else if (posY === 1 || posY === 13) {
                 // intersecciones de tres caminos en los bordes de y
             } else {
-                //intersecciones de cuatro caminos
+                comprobarCeldas(celdas[(posX - 4) / 4][(posY - 4) / 3]);
+                comprobarCeldas(celdas[(posX + 4) / 4][(posY - 4) / 3]);
+                comprobarCeldas(celdas[(posX + 4) / 4][(posY + 2) / 3]);
+                comprobarCeldas(celdas[(posX - 4) / 4][(posY + 2) / 3]);
             }
         }
     } else if ((posX === 0 || posX === 20) && (posY === 1 || posY === 13)) {
