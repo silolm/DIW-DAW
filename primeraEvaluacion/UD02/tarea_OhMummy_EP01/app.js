@@ -190,46 +190,72 @@ function crearMomia() {
 function moverMomia() {
     console.log("entra");
     //calcular una nueva posición adyacente a la momia, y que contenga camino.
-    let direccion = 0;
-    var newX = 0;
-    var newY = 0;
-    while (!mapa[newY][newX].classList.contains("pasillo")) {
-        direccion = Math.floor(Math.random() * 3);
-        switch (direccion) {
-            case 0: //arriba
-                if (enemigo.y >= 0) {
-                    newX = enemigo.x;
-                    newY = enemigo.y - 1;
-                }
-                break;
-            case 1: //abajo
-                if (enemigo.y <= 13) {
-                    newX = enemigo.x;
-                    newY = enemigo.y + 1;
-                }
-                break;
-            case 2: //izquierda
-                if (enemigo.x >= 0) {
-                    newX = enemigo.x - 1;
-                    newY = enemigo.y;
-                }
-                break;
-            case 3: //derecha
-                if (enemigo.x <= 20) {
-                    newX = enemigo.x + 1;
-                    newY = enemigo.y;
-                }
-                break;
-            default:
-                break;
-        }
-    }
+     let direccion = 0;
+     var newX = 0;
+     var newY = 0;
+     while (!mapa[newY][newX].classList.contains("pasillo")) {
+         direccion = Math.floor(Math.random() * 3);
+         switch (direccion) {
+             case 0: //arriba
+                 if (enemigo.y >= 0) {
+                     newX = enemigo.x;
+                     newY = enemigo.y - 1;
+                 }
+                 break;
+             case 1: //abajo
+                 if (enemigo.y <= 13) {
+                     newX = enemigo.x;
+                     newY = enemigo.y + 1;
+                 }
+                 break;
+             case 2: //izquierda
+                 if (enemigo.x >= 0) {
+                     newX = enemigo.x - 1;
+                     newY = enemigo.y;
+                 }
+                 break;
+             case 3: //derecha
+                 if (enemigo.x <= 20) {
+                     newX = enemigo.x + 1;
+                     newY = enemigo.y;
+                 }
+                 break;
+             default:
+                 break;
+         }
+     }
 
     mapa[enemigo.y][enemigo.x].classList.remove("enemigo");
     enemigo.x = newX;
     enemigo.y = newY;
     mapa[enemigo.y][enemigo.x].classList.add("enemigo");
 
+    /*for (let i = 0; i < enemigo.x.length; i++) {
+        enemigo.x = enemigo.x[i];
+        enemigo.y = enemigo.y[i];
+
+
+        if (enemigo.x < personaje.x && mapa[enemigo.x + 1][enemigo.y] === 1 && !document.getElementsByClassName((enemigo.x + 1) + enemigo.y * 21).classList.contains('enemigo')) {
+            console.log("se mueve derecha");
+            document.getElementsByClassName(enemigo.x + enemigo.y * 21).classList.remove('enemigo');
+            document.getElementsByClassName((enemigo.x + 1) + enemigo.y * 21).classList.add('enemigo');
+            enemigo.x[i] = enemigo.x + 1;
+        } else if (enemigo.x > personaje.x && mapa[enemigo.x - 1][enemigo.y] === 1 && !document.getElementsByClassName((enemigo.x - 1) + enemigo.y * 21).classList.contains('enemigo')) {
+            document.getElementsByClassName(enemigo.x + enemigo.y * 21).classList.remove('enemigo');
+            document.getElementsByClassName((enemigo.x - 1) + enemigo.y * 21).classList.add('enemigo');
+            enemigo.x[i] = enemigo.x - 1;
+        } else if (enemigo.y < personaje.y && mapa[enemigo.x][enemigo.y + 1] === 1 && !document.getElementsByClassName(enemigo.x + (enemigo.y + 1) * 21).classList.contains('enemigo')) {
+            document.getElementsByClassName(enemigo.x + enemigo.y * 21).classList.remove('enemigo');
+            document.getElementsByClassName(enemigo.x + (enemigo.y + 1) * 21).classList.add('enemigo');
+            enemigo.y[i] = enemigo.y + 1;
+        } else if (enemigo.y < personaje.y && mapa[enemigo.x][enemigo.y - 1] === 1 && !document.getElementsByClassName(enemigo.x + (enemigo.y - 1) * 21).classList.contains('enemigo')) {
+            document.getElementsByClassName(enemigo.x + enemigo.y * 21).classList.remove('enemigo');
+            document.getElementsByClassName(enemigo.x + (enemigo.y - 1) * 21).classList.add('enemigo');
+            enemigo.y[i] = enemigo.y - 1;
+        }
+
+
+    }*/
 }
 
 // Movimientos

@@ -40,7 +40,7 @@ body {
 }
 
 .enemigo {
-    content: url("images/Momia-Metal-Slug.gif");
+    content: url("images/Momia-Metal-Slug.gif") !important;
     width: 40px;
     height: 40px;
 }
