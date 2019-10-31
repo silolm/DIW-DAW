@@ -189,46 +189,60 @@ function crearMomia() {
 
 function moverMomia() {
     console.log("entra");
+    let valX = 0;
+    let valY = 0;
     //calcular una nueva posición adyacente a la momia, y que contenga camino.
-     let direccion = 0;
-     var newX = 0;
-     var newY = 0;
-     while (!mapa[newY][newX].classList.contains("pasillo")) {
-         direccion = Math.floor(Math.random() * 3);
-         switch (direccion) {
-             case 0: //arriba
-                 if (enemigo.y >= 0) {
-                     newX = enemigo.x;
-                     newY = enemigo.y - 1;
-                 }
-                 break;
-             case 1: //abajo
-                 if (enemigo.y <= 13) {
-                     newX = enemigo.x;
-                     newY = enemigo.y + 1;
-                 }
-                 break;
-             case 2: //izquierda
-                 if (enemigo.x >= 0) {
-                     newX = enemigo.x - 1;
-                     newY = enemigo.y;
-                 }
-                 break;
-             case 3: //derecha
-                 if (enemigo.x <= 20) {
-                     newX = enemigo.x + 1;
-                     newY = enemigo.y;
-                 }
-                 break;
-             default:
-                 break;
-         }
-     }
+    let direccion = 0;
+    var newX = 0;
+    var newY = 0;
+    // while (!mapa[newY][newX].classList.contains("pasillo")) {
+    direccion = Math.floor(Math.random() * 4);
+    /*switch (direccion) {
+        case 0: //arriba
+                newX = enemigo.x;
+                newY = enemigo.y - 1;
 
-    mapa[enemigo.y][enemigo.x].classList.remove("enemigo");
-    enemigo.x = newX;
-    enemigo.y = newY;
-    mapa[enemigo.y][enemigo.x].classList.add("enemigo");
+            break;
+        case 1: //abajo
+                newX = enemigo.x;
+                newY = enemigo.y + 1;
+
+            break;
+        case 2: //izquierda
+                newX = enemigo.x - 1;
+                newY = enemigo.y;
+
+            break;
+        case 3: //derecha
+                newX = enemigo.x + 1;
+                newY = enemigo.y;
+
+            break;
+        default:
+            break;
+    }*/
+    //}
+    if (!mapa[enemigo.y+1][enemigo.x].classList.contains('celda')&&enemigo.y < personaje.y&&enemigo.y<12&&enemigo.y>=0) {
+        enemigo.y++;
+        borrarMalo();
+        mapa[enemigo.y][enemigo.x].classList.add("enemigo");
+    }
+    if (!mapa[enemigo.y][enemigo.x+1].classList.contains('celda')&&enemigo.x < personaje.x&&enemigo.x<20&&enemigo.x>=0) {
+        enemigo.x++;
+        borrarMalo();
+        mapa[enemigo.y][enemigo.x].classList.add("enemigo");
+    }
+    if (!mapa[enemigo.y-1][enemigo.x].classList.contains('celda')&&enemigo.y > personaje.y&&enemigo.y<12&&enemigo.y>0) {
+        enemigo.y--;
+        borrarMalo();
+        mapa[enemigo.y][enemigo.x].classList.add("enemigo");
+    }
+    if (!mapa[enemigo.y][enemigo.x-1].classList.contains('celda')&&enemigo.x > personaje.x&&enemigo.x<20&&enemigo.x>0) {
+        enemigo.x--;
+        borrarMalo();
+        mapa[enemigo.y][enemigo.x].classList.add("enemigo");
+    }
+
 
     /*for (let i = 0; i < enemigo.x.length; i++) {
         enemigo.x = enemigo.x[i];
@@ -257,7 +271,16 @@ function moverMomia() {
 
     }*/
 }
-
+function borrarMalo(){
+    mapa[enemigo.y-1][enemigo.x].classList.remove("enemigo");
+    mapa[enemigo.y+1][enemigo.x].classList.remove("enemigo");
+    mapa[enemigo.y][enemigo.x-1].classList.remove("enemigo");
+    mapa[enemigo.y][enemigo.x+1].classList.remove("enemigo");
+    mapa[enemigo.y-1][enemigo.x-1].classList.remove("enemigo");
+    mapa[enemigo.y-1][enemigo.x+1].classList.remove("enemigo");
+    mapa[enemigo.y+1][enemigo.x-1].classList.remove("enemigo");
+    mapa[enemigo.y+1][enemigo.x+1].classList.remove("enemigo");
+}
 // Movimientos
 function moverAbajo() {
     let posY = personaje.y + 1;
