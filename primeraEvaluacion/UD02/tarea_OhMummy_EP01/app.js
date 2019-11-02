@@ -2,7 +2,8 @@ let mapa = [];
 let celdas = [];
 let personaje = {
     y: 0,
-    x: 8
+    x: 8,
+    vidas: 5
 };
 let pergamino = false;
 let llave = false;
@@ -10,7 +11,8 @@ let urna = false;
 
 let enemigo = {
     y: 0,
-    x: 8
+    x: 8,
+    temporizador: undefined
 };
 
 
@@ -77,14 +79,17 @@ function marcarCeldas() {
 }
 
 function inicializarCeldas() {
-    let urnaAl = [(Math.random().toFixed(2) * 100) % 5, (Math.random().toFixed(2) * 100) % 4];
+    let urnaAl = [Math.round((Math.random().toFixed(2) * 100) % 5),
+        Math.round((Math.random().toFixed(2) * 100) % 4)];
     let llaveAl = [];
     let pergaminoAl = [];
     do {
-        llaveAl = [(Math.random().toFixed(2) * 100) % 5, (Math.random().toFixed(2) * 100) % 4];
+        llaveAl = [Math.round((Math.random().toFixed(2) * 100) % 5),
+            Math.round((Math.random().toFixed(2) * 100) % 4)];
     } while (llaveAl === urnaAl);
     do {
-        pergaminoAl = [(Math.random().toFixed(2) * 100) % 5, (Math.random().toFixed(2) * 100) % 4];
+        pergaminoAl = [Math.round((Math.random().toFixed(2) * 100) % 5),
+            Math.round((Math.random().toFixed(2) * 100) % 4)];
     } while (pergaminoAl === urnaAl || pergaminoAl === llaveAl);
 
     for (let i = 0; i < 5; i++) {
@@ -184,50 +189,48 @@ function crearMomia() {
 
     enemigo.x = newX;
     enemigo.y = newY;
-    setInterval(moverMomia, 300);
+    enemigo.temporizador = setInterval(moverMomia, 300);
 }
 
 function moverMomia() {
-    let valX = 0;
-    let valY = 0;
-    //calcular una nueva posición adyacente a la momia, y que contenga camino.
-    let direccion = 0;
-    var newX = 0;
-    var newY = 0;
 
-
-    if (!mapa[enemigo.y + 1][enemigo.x].classList.contains('celda') && enemigo.y < personaje.y && enemigo.y < 12 && enemigo.y >= 0) {
+    if (enemigo.y < 13 && !mapa[enemigo.y + 1][enemigo.x].classList.contains('celda') && enemigo.y < personaje.y) {
+        borrarRastroMomia();
         enemigo.y++;
-        borrarMalo();
         mapa[enemigo.y][enemigo.x].classList.add("enemigo");
     }
-    if (!mapa[enemigo.y][enemigo.x + 1].classList.contains('celda') && enemigo.x < personaje.x && enemigo.x < 20 && enemigo.x >= 0) {
+    if (enemigo.x < 20 && !mapa[enemigo.y][enemigo.x + 1].classList.contains('celda') && enemigo.x < personaje.x) {
+        borrarRastroMomia();
         enemigo.x++;
-        borrarMalo();
         mapa[enemigo.y][enemigo.x].classList.add("enemigo");
     }
-    if (!mapa[enemigo.y - 1][enemigo.x].classList.contains('celda') && enemigo.y > personaje.y && enemigo.y < 12 && enemigo.y > 0) {
+    if (enemigo.y > 0 && !mapa[enemigo.y - 1][enemigo.x].classList.contains('celda') && enemigo.y > personaje.y) {
+        borrarRastroMomia();
         enemigo.y--;
-        borrarMalo();
         mapa[enemigo.y][enemigo.x].classList.add("enemigo");
     }
-    if (!mapa[enemigo.y][enemigo.x - 1].classList.contains('celda') && enemigo.x > personaje.x && enemigo.x < 20 && enemigo.x > 0) {
+    if (enemigo.x > 0 && !mapa[enemigo.y][enemigo.x - 1].classList.contains('celda') && enemigo.x > personaje.x) {
+        borrarRastroMomia();
         enemigo.x--;
-        borrarMalo();
         mapa[enemigo.y][enemigo.x].classList.add("enemigo");
     }
 
 }
 
-function borrarMalo() {
-    mapa[enemigo.y - 1][enemigo.x].classList.remove("enemigo");
-    mapa[enemigo.y + 1][enemigo.x].classList.remove("enemigo");
-    mapa[enemigo.y][enemigo.x - 1].classList.remove("enemigo");
-    mapa[enemigo.y][enemigo.x + 1].classList.remove("enemigo");
-    mapa[enemigo.y - 1][enemigo.x - 1].classList.remove("enemigo");
-    mapa[enemigo.y - 1][enemigo.x + 1].classList.remove("enemigo");
-    mapa[enemigo.y + 1][enemigo.x - 1].classList.remove("enemigo");
-    mapa[enemigo.y + 1][enemigo.x + 1].classList.remove("enemigo");
+function borrarRastroMomia() {
+    mapa[enemigo.y][enemigo.x].classList.remove("enemigo");
+}
+
+function matarMomia() {
+    if (!pergamino) quitarVida();
+    else pergamino = false;
+    
+    clearInterval(enemigo.temporizador);
+    borrarRastroMomia();
+}
+
+function quitarVida() {
+    
 }
 
 // Movimientos

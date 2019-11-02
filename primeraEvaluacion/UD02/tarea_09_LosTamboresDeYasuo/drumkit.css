@@ -1,0 +1,52 @@
+body {
+    margin: auto 0;
+}
+
+.keys {
+    background-image: url('img/yasuoBG.png');
+    background-size: 100vw 100vh;
+    background-attachment: fixed;
+    margin: 0;
+    background-repeat: no-repeat;
+
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: flex-start;
+}
+
+
+.key {
+    display: flex;
+    flex-wrap: wrap;
+    align-content:center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    margin-top: 190px;
+    margin-left: 35px;
+
+    padding: 20px 20px;
+    height: 150px;
+    width: 150px;
+
+    border-radius: 5px 5px 5px 5px;
+    border: 5px solid black;
+
+    background-color: rgba(255, 255, 255, 0.30);
+    animation: 0.2s;
+}
+
+kbd {
+    font-size: 60px;
+    color: white;
+    font-family: 'Adobe Devanagari';
+}
+
+.sound {
+    text-shadow: 2px 2px 3px #000000;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #F5C006;
+}
