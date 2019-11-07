@@ -1,23 +1,32 @@
 window.onload = init;
+
 let contador = 0;
+let verde = false;
+let azul = false;
 
 function crearCajas() {
     if (contador <= 17) {
         let padre = document.querySelector('container');
         let caja = document.createElement('box');
 
-        caja.addEventListener('click', click);
+        caja.addEventListener('click', () => {
+            if (!caja.classList.contains('evoluciona') && !caja.classList.contains('desevoluciona')) {
+                caja.classList.add('evoluciona');
+
+            } else if (caja.classList.contains('evoluciona')) {
+                caja.classList.remove('evoluciona');
+                caja.classList.add('desevoluciona');
+            }else if (caja.classList.contains('desevoluciona')) {
+                caja.classList.remove('desevoluciona');
+                caja.classList.add('ultimate ');
+            }
+
+
+        });
 
         padre.appendChild(caja);
         contador++;
     }
-}
-
-function click() {
-
-    if (!this.classList.contains('evoluciona'))
-        this.classList.add('evoluciona');
-
 }
 
 function init() {

@@ -9,8 +9,6 @@ container {
 
     grid-template-columns: repeat(6, 100px);
     grid-template-rows: repeat(4, 100px);
-
-
 }
 
 button {
@@ -33,7 +31,9 @@ box {
 
 .desevoluciona {
     background-color: #10e;
-
+    transform: translateX(0px);
+    transition-timing-function: linear;
+    transition: 0.4s;
 }
 
 .ultimate {
@@ -45,10 +45,12 @@ box {
    */
 }
 
-.ultimate:hover {
-    /* 
+/*ultimate:hover {
+
  
     ^(;,;)^ : Fragmento perdido
 
-   */
+
 }
+
+ */
