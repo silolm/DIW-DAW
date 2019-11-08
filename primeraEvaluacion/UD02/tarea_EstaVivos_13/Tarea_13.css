@@ -41,7 +41,72 @@ box {
     background-repeat: no-repeat;
 }
 
-.ultimate:hover {
-    transform: scale(1.2);
+/*.ultimate:hover {
+  transform: scale(1.2);
+}*/
+
+.giro {
+    animation-name: girar;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 
+.v {
+    position: relative;
+    animation-name: moverV;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+
+/* ANIMACIONES */
+
+@keyframes girar {
+
+    0% {
+        transform: rotate(0);
+
+    }
+    100% {
+
+        transform: rotate(360deg);
+    }
+
+}
+
+
+@keyframes moverV {
+
+    from {
+
+        top: 0px;
+        left: 0px;
+    }
+
+    25% {
+
+        top: 30px;
+        left: 30px;
+
+    }
+    50% {
+
+        top: 0px;
+        left: 60px;
+    }
+    75% {
+
+        top: 30px;
+        left: 30px;
+
+    }
+    to {
+
+        top: 0px;
+        left: 0px;
+
+    }
+
+}

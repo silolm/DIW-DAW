@@ -1,6 +1,8 @@
 window.onload = init;
 
 let contador = 0;
+let giro = false;
+let v = false;
 
 function crearCajas() {
     if (contador <= 17) {
@@ -24,6 +26,28 @@ function crearCajas() {
     }
 }
 
+function crearGiro() {
+    let elemento = document.querySelector('.ultimate');
+
+    elemento.addEventListener('click', () => {
+       if (!giro)
+           elemento.classList.add('giro');
+    });
+}
+
+
+function crearV() {
+    let elemento = document.querySelector('.ultimate');
+
+    elemento.addEventListener('click', () => {
+        if (!v)
+            elemento.classList.add('v');
+    });
+}
+
+
 function init() {
-    document.querySelector('button').addEventListener('click', crearCajas);
+    document.querySelector('.original').addEventListener('click', crearCajas);
+    document.querySelector('.giratorio').addEventListener('click', crearGiro);
+    document.querySelector('.vendetta').addEventListener('click', crearV);
 }
