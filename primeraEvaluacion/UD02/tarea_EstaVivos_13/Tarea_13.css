@@ -1,0 +1,47 @@
+body {
+    background-color: grey;
+    padding: 3rem;
+}
+
+container {
+    margin: 1rem;
+    display: grid;
+
+    grid-template-columns: repeat(6, 100px);
+    grid-template-rows: repeat(4, 100px);
+}
+
+button {
+    border: 3px solid darkgrey;
+}
+
+box {
+    background-color: #1e0;
+    border: 3px solid #AABBAA;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.evoluciona {
+    background-color: #e10;
+    transform: translateX(100px);
+    transition-timing-function: linear;
+    transition: 0.4s;
+}
+
+.desevoluciona {
+    background-color: #10e;
+    transition: 0.4s;
+}
+
+.ultimate {
+    background-color: #441155;
+    background-image: url("cthulhu.svg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.ultimate:hover {
+    transform: scale(1.2);
+}
+
