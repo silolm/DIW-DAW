@@ -31,26 +31,17 @@ box {
 
 .desevoluciona {
     background-color: #10e;
-    transform: translateX(0px);
-    transition-timing-function: linear;
     transition: 0.4s;
 }
 
 .ultimate {
     background-color: #441155;
-    /* 
- 
-    ^(;,;)^ : Fragmento perdido
-
-   */
+    background-image: url("cthulhu.svg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
-/*ultimate:hover {
-
- 
-    ^(;,;)^ : Fragmento perdido
-
-
+.ultimate:hover {
+    transform: scale(1.2);
 }
 
- */

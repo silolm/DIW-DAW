@@ -1,8 +1,6 @@
 window.onload = init;
 
 let contador = 0;
-let verde = false;
-let azul = false;
 
 function crearCajas() {
     if (contador <= 17) {
@@ -10,18 +8,15 @@ function crearCajas() {
         let caja = document.createElement('box');
 
         caja.addEventListener('click', () => {
-            if (!caja.classList.contains('evoluciona') && !caja.classList.contains('desevoluciona')) {
+            if (!caja.classList.contains('evoluciona') && !caja.classList.contains('desevoluciona') && !caja.classList.contains('ultimate'))
                 caja.classList.add('evoluciona');
-
-            } else if (caja.classList.contains('evoluciona')) {
+            else if (caja.classList.contains('evoluciona') && !caja.classList.contains('ultimate')) {
                 caja.classList.remove('evoluciona');
                 caja.classList.add('desevoluciona');
-            }else if (caja.classList.contains('desevoluciona')) {
+            } else if (caja.classList.contains('desevoluciona')) {
                 caja.classList.remove('desevoluciona');
-                caja.classList.add('ultimate ');
+                caja.classList.add('ultimate');
             }
-
-
         });
 
         padre.appendChild(caja);
