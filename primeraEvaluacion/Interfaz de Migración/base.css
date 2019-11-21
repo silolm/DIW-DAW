@@ -3,78 +3,78 @@ CSS Base for the Miskatonic Herald
 */
 
 @font-face {
-  font-family: neon;
-  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+    font-family: neon;
+    src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
 }
 
 /*
 * CSS for body
 */
 
-body{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    height:100vh;
-    
-    /*background-color:#323232;*/
-    background-image:url("https://picsum.photos/1600/900");
-    font-family: 'OuroborosRegular';
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    #background-color: #323232;
+    background-image: url("imgs/nature.jpg");
+    background-size: 100vw 100vh;
+    #font-family: 'OuroborosRegular';
     font-weight: normal;
     font-style: normal;
     margin: 0;
-    color:#ffffff;
+    color: #ffffff;
 }
 
+content {
+    background-color: rgba(1, 1, 1, 0.7);
+    border-radius: 10px;
+    height: 550px;
+    width: 1000px;
+    text-align: center;
+}
 
 /*
 * CSS for items
 */
 
-items{
-
-    /* 
-     * Fragmentos perdidos 
-     * ^(;,;)^
-     */
-    
+items {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
 }
 
-item{
-    /* 
-     * Fragmentos perdidos 
-     * ^(;,;)^
-     */
+item {
+
 }
 
-/*
-* CSS for body
-*/
-
-button{
-    
-    /* 
-     * Fragmentos perdidos 
-     * ^(;,;)^
-     */
+button {
+    font-family: 'OuroborosRegular', fantasy;
+    background-color: #E7A72D;
+    letter-spacing: 12px;
+    text-align: center;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    color: white;
 }
 
 button:hover {
-    
-    /* 
-     * Fragmentos perdidos 
-     * ^(;,;)^
-     */
+    font-family: 'OuroborosRegular', fantasy;
+    background-color: #B8860B;
+    letter-spacing: 12px;
+    text-align: center;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    color: white;
 }
 
 button:active {
-    
+
     /* 
      * Fragmentos perdidos 
      * ^(;,;)^
      */
 }
-
 
 /*
 * CSS for steps
@@ -84,12 +84,10 @@ button:active {
 *   GUI.
 */
 
-steps{
-   
-    /* 
-     * Fragmentos perdidos 
-     * ^(;,;)^
-     */
+steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
 }
 
 /*
@@ -98,27 +96,25 @@ steps{
 * that turns the element visible
 * with a transition.
 */
+
 steps * {
+
+}
+
+.estabaEscondido {
+
     /* 
      * Fragmentos perdidos 
      * ^(;,;)^
      */
 }
-
-.estabaEscondido{
-   
-    /* 
-     * Fragmentos perdidos 
-     * ^(;,;)^
-     */
-}
-
 
 /*Progress*/
 /*
 * CSS for ProgressBars
 */
-progress{
+
+progress {
 
     /* 
      * Fragmentos perdidos 
@@ -126,9 +122,7 @@ progress{
      */
 }
 
-
-
-finalmsg{
+finalmsg {
 
     /* 
      * Fragmentos perdidos 
@@ -137,7 +131,7 @@ finalmsg{
 }
 
 @keyframes neon {
- 
+
     /* 
      * Fragmentos perdidos 
      * ^(;,;)^

@@ -14,18 +14,18 @@ FUNCIONES PERDIDAS
 
 */
 
-function startMigration(){
+function startMigration() {
 
     // Fragmentos perdidos
     // ^(;,;)^
 }
 
-function init(){
+function init() {
     console.info(" * Init envirnoment ");
 
     // Set click function on button
-    document.querySelector("button").addEventListener("click",startMigration);
+    document.querySelector("button").addEventListener("click", startMigration);
 }
 
 // Init the environment when all is ready
-window.onload=init;
+window.onload = init;

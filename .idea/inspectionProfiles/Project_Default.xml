@@ -1,10 +1,21 @@
 <component name="InspectionProjectProfileManager">
   <profile version="1.0">
     <option name="myName" value="Project Default" />
+    <inspection_tool class="CssUnknownProperty" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myCustomPropertiesEnabled" value="true" />
+      <option name="myIgnoreVendorSpecificProperties" value="false" />
+      <option name="myCustomPropertiesList">
+        <value>
+          <list size="1">
+            <item index="0" class="java.lang.String" itemvalue="align" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
     <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="11">
+          <list size="17">
             <item index="0" class="java.lang.String" itemvalue="nobr" />
             <item index="1" class="java.lang.String" itemvalue="noembed" />
             <item index="2" class="java.lang.String" itemvalue="comment" />
@@ -16,6 +27,12 @@
             <item index="8" class="java.lang.String" itemvalue="box" />
             <item index="9" class="java.lang.String" itemvalue="ultimate" />
             <item index="10" class="java.lang.String" itemvalue="htmls" />
+            <item index="11" class="java.lang.String" itemvalue="content" />
+            <item index="12" class="java.lang.String" itemvalue="items" />
+            <item index="13" class="java.lang.String" itemvalue="item" />
+            <item index="14" class="java.lang.String" itemvalue="steps" />
+            <item index="15" class="java.lang.String" itemvalue="steplabel" />
+            <item index="16" class="java.lang.String" itemvalue="finalmsg" />
           </list>
         </value>
       </option>
