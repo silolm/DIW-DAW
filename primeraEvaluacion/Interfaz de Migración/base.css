@@ -98,15 +98,15 @@ steps {
 */
 
 steps * {
-
+    opacity: 0;
+    transition: opacity;
+    transition-duration: 2s;
+    transition-timing-function: ease-in-out;
 }
 
 .estabaEscondido {
-
-    /* 
-     * Fragmentos perdidos 
-     * ^(;,;)^
-     */
+    visibility: visible;
+    opacity: 1;
 }
 
 /*Progress*/

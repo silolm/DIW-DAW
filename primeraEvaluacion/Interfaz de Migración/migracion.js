@@ -1,23 +1,25 @@
-/*
+function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
-This Script is licensed under GPL v3 or higher
+async function startMigration() {
+    let progreso = document.querySelectorAll('progress');
+    let label = document.querySelectorAll('steplabel');
+    let msg = document.querySelectorAll('finalmsg');
 
-Author: Angel Berlanas Vicente
-email : <berlanas_ang@gva.es>
+    for (let i = 0; i < progreso.length; i++) {
+        label[i].classList.add('estabaEscondido');
+        await sleep(1100);
+        progreso[i].classList.add('estabaEscondido');
 
-*/
+        for (let j = 0; j < 100; j++) {
+            progreso[i].value += 1;
+            await sleep(50);
+        }
 
-/*
-
-FUNCIONES PERDIDAS
-^(;,;)^
-
-*/
-
-function startMigration() {
-
-    // Fragmentos perdidos
-    // ^(;,;)^
+        msg[i].classList.add('estabaEscondido');
+        await sleep(1500);
+    }
 }
 
 function init() {
