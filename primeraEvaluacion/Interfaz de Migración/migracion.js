@@ -14,7 +14,7 @@ async function startMigration() {
 
         for (let j = 0; j < 100; j++) {
             progreso[i].value += 1;
-            await sleep(50);
+            await sleep(30);
         }
 
         msg[i].classList.add('estabaEscondido');
@@ -23,11 +23,7 @@ async function startMigration() {
 }
 
 function init() {
-    console.info(" * Init envirnoment ");
-
-    // Set click function on button
     document.querySelector("button").addEventListener("click", startMigration);
 }
 
-// Init the environment when all is ready
 window.onload = init;

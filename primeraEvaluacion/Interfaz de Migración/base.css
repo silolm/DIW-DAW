@@ -20,7 +20,7 @@ body {
     #background-color: #323232;
     background-image: url("imgs/nature.jpg");
     background-size: 100vw 100vh;
-    #font-family: 'OuroborosRegular';
+    font-family: 'OuroborosRegular';
     font-weight: normal;
     font-style: normal;
     margin: 0;
@@ -30,7 +30,7 @@ body {
 content {
     background-color: rgba(1, 1, 1, 0.7);
     border-radius: 10px;
-    height: 550px;
+    height: 100%;
     width: 1000px;
     text-align: center;
 }
@@ -49,8 +49,8 @@ item {
 }
 
 button {
-    font-family: 'OuroborosRegular', fantasy;
-    background-color: #E7A72D;
+    font-family: 'OuroborosRegular';
+    background-color: #e0bb00;
     letter-spacing: 12px;
     text-align: center;
     padding: 10px 20px;
@@ -59,21 +59,13 @@ button {
 }
 
 button:hover {
-    font-family: 'OuroborosRegular', fantasy;
-    background-color: #B8860B;
+    font-family: 'OuroborosRegular';
+    background-color: #b89100;
     letter-spacing: 12px;
     text-align: center;
     padding: 10px 20px;
     text-transform: uppercase;
     color: white;
-}
-
-button:active {
-
-    /* 
-     * Fragmentos perdidos 
-     * ^(;,;)^
-     */
 }
 
 /*
@@ -115,26 +107,34 @@ steps * {
 */
 
 progress {
+    height: 30px;
+    width: 100%;
 
-    /* 
-     * Fragmentos perdidos 
-     * ^(;,;)^
-     */
+    padding: 5px;
+    border: 1px solid gold;
+
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+
 }
 
 finalmsg {
+    animation-name: neon;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    color: #f8f32b;
 
-    /* 
-     * Fragmentos perdidos 
-     * ^(;,;)^
-     */
 }
 
 @keyframes neon {
+    0% {
+        color: #f8f32b;
+    }
+    50% {
+        color: #f000ff;
+        text-shadow: 0px 0px 30px rgb(255, 0, 2);
+    }
 
-    /* 
-     * Fragmentos perdidos 
-     * ^(;,;)^
-     */
 }
 
