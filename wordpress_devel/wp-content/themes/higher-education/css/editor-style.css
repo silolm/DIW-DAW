@@ -1,0 +1,677 @@
+/*
+Theme Name: Higher Education 
+Description: Used to style the TinyMCE editor.
+*/
+
+
+/**
+ * 1.0 Reset
+ */
+
+html {
+	font-size: 62.5%; /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
+	overflow-y: scroll; /* Keeps page centered in all browsers regardless of content height */
+	-webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
+	-ms-text-size-adjust:     100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
+}
+
+
+/**
+ * 2.0 Typography
+ */
+
+body,
+button,
+input,
+select,
+textarea {
+	color: #111;
+	font-family: 'Nunito Sans', sans-serif;
+	font-size: 17px;
+	font-size: 1.0625rem;
+	font-weight: 300;
+	line-height: 1.64705;
+}
+
+h1,
+.mce-content-body h1,
+h2,
+.mce-content-body h2,
+h3,
+.mce-content-body h3,
+h4,
+.mce-content-body h4,
+h5,
+.mce-content-body h5,
+h6,
+.mce-content-body h6 {
+	clear: both;
+	font-weight: 300;
+	margin-bottom: 14px;
+}
+
+h1,
+.mce-content-body h1 {
+	font-size: 32px;
+	font-size: 2rem;
+}
+
+h2,
+.mce-content-body h2 {
+	font-size: 24px;
+	font-size: 1.5rem;
+}
+
+h3,
+.mce-content-body h3 {
+	font-size: 20px;
+	font-size: 1.25rem;
+	line-height: 1.25;
+}
+
+h4,
+.mce-content-body h4 {
+	font-size: 18px;
+	font-size: 1.125rem;
+	line-height: 1.4583;
+}
+
+h5,
+.mce-content-body h5 {
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 1.4;
+}
+
+h6,
+.mce-content-body h6 {
+	font-size: 14px;
+	font-size: 0.875rem;
+}
+
+h1,
+.mce-content-body h1, 
+h2,
+.mce-content-body h2, 
+h6,
+.mce-content-body h6 {
+	line-height: 1.1666;
+}
+
+
+/**
+ * 3.0 Elements
+ */
+
+ p,
+ blockquote {
+ 	margin-bottom: 1.5em;
+ }
+
+b,
+strong {
+	font-weight: bold;
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+blockquote:before {
+	color: #eee;
+	content: "\201C";
+	position: absolute;
+	left: 0;
+	top: 28px;
+	font-size: 100px;
+	line-height: 28px;
+}
+
+blockquote {
+	line-height: 1.4;
+	padding: 0 0 0 49px;
+	position: relative;
+}
+
+address {
+	font-style: normal;
+	margin: 0 0 1.5em;
+}
+
+pre,
+.mce-content-body pre {
+	background: #eee;
+	font-family: "Courier 10 Pitch", Courier, monospace;
+	font-size: 15px;
+	font-size: 0.9375rem;
+	line-height: 1.6;
+	margin-top: 0;
+	margin-bottom: 1.6em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 1.6em;
+}
+
+code,
+.mce-content-body code,
+kbd,
+.mce-content-body kbd,
+tt,
+.mce-content-body tt,
+var,
+.mce-content-body var {
+	background-color: transparent;
+	padding: 0;
+	color: inherit;
+	font-size: 1em;
+	font-family: Courier New, Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+abbr,
+acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+}
+
+mark,
+ins {
+	background: #fff9c0;
+	text-decoration: none;
+}
+
+sup,
+sub {
+	font-size: 75%;
+	height: 0;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	bottom: 1ex;
+}
+
+sub {
+	top: .5ex;
+}
+
+small {
+	font-size: 75%;
+}
+
+big {
+	font-size: 125%;
+}
+
+a {
+	color: #21759b;
+	text-decoration: none;
+}
+
+hr {
+	background-color: #ccc;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+ol,
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+p {
+	font-size: inherit;
+	margin-top: 0;
+    margin-bottom: 20px;
+}
+
+ol,
+ul {
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+ol > li {
+	list-style-type: decimal;
+}
+
+ul > li {
+    list-style-type: square;
+}
+
+ol ol,
+ul ul {
+	margin-bottom: 0;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+img {
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
+}
+
+figure {
+	margin: 0;
+}
+
+p, 
+.mce-content-body, 
+.editor-rich-text__tinymce {
+	line-height: 1.64705;
+}
+
+
+/**
+ * 4.0 Alignment
+ */
+
+.alignleft {
+	display: inline;
+	float: left;
+	margin: 0 2.1875em 1.3125em 0;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin: 0 0 1.3125em 2.1875em;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin: 0 auto 1.3125em;
+}
+
+
+/**
+ * 5.0 Caption
+ */
+
+.wp-caption {
+	background-color:  #f3f3f3;
+	border: 1px solid #ddd;
+	margin-top: 0;
+	margin-bottom: 1.5em;
+	max-width: 100%;
+	padding: 5px 5px 0;
+}
+
+.wp-caption .wp-caption-text {
+	margin: 8px 0;
+	padding: 0;
+}
+
+dl.wp-caption, dl.wp-caption * {
+	width: 100%;
+}
+
+.wp-caption-dd {
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 4px 5px;
+}
+
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin: 0 auto;
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}
+
+
+/**
+ * 6.0 Galleries
+ */
+
+.gallery {
+	margin-bottom: 1.5em;
+}
+.gallery img {
+    border: 1px solid #eee;
+    padding: 5px;
+}
+.gallery-item {
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+	max-width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+	max-width: 33.33%;
+}
+
+.gallery-columns-4 .gallery-item {
+	max-width: 25%;
+}
+
+.gallery-columns-5 .gallery-item {
+	max-width: 20%;
+}
+
+.gallery-columns-6 .gallery-item {
+	max-width: 16.66%;
+}
+
+.gallery-columns-7 .gallery-item {
+	max-width: 14.28%;
+}
+
+.gallery-columns-8 .gallery-item {
+	max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+	max-width: 11.11%;
+}
+
+.gallery-caption {
+	display: block;
+}
+
+.gallery .gallery-caption {
+	font-size: 15px;
+	line-height: 1.5;
+	margin-top: 0;
+	margin-bottom:  15px;
+}
+
+
+/**
+ * 7.0 Table
+ */
+
+table,
+.mce-item-table {
+	border-collapse: collapse;
+	border-width: 1px 0 0 1px;
+	margin: 0 0 2em;
+	width: 100%;
+}
+
+table,
+.mce-item-table, 
+th,
+.mce-item-table th, 
+td,
+.mce-item-table td {
+	border: 1px solid #eee;
+	border-right: 0;
+	border-left: 0;
+	border-top: 0;
+}
+
+table > thead > tr > th,
+.mce-item-table table > thead > tr > th {
+	font-weight: 600;
+}
+
+caption,
+.mce-item-table caption,
+th,
+.mce-item-table th,
+td,
+.mce-item-table td {
+    font-weight: normal;
+	padding: 0.8823529411764706em 1.176470588235294em;
+	text-align: left;
+}
+
+caption,
+.mce-item-table caption {
+	border: none;
+}
+
+
+/*--------------------------------------------------------------
+8.0 Forms
+--------------------------------------------------------------*/
+
+input {
+    line-height: normal;
+}
+
+
+.button,
+input[type="button"],
+input[type="button"][disabled]:hover,
+input[type="button"][disabled]:focus,
+input[type="reset"],
+input[type="reset"][disabled]:hover,
+input[type="reset"][disabled]:focus,
+input[type="submit"],
+input[type="submit"][disabled]:hover,
+input[type="submit"][disabled]:focus {
+    background-color: #000;
+    border: none;
+    border-radius: 1px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    line-height: 1;
+    outline: 0;
+    padding: 14px 24px;
+    transition: all 0.1s ease-in-out;
+    text-transform: uppercase;
+}
+
+.button:hover,
+.button:focus,
+input[type="button"]:hover,
+input[type="button"]:focus,
+input[type="reset"]:hover,
+input[type="reset"]:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+    background-color: #5e5e5e;
+    border: none;
+    color: #fff;
+}
+
+button:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
+input[type="submit"]:focus {
+    outline: thin dotted;
+    outline-offset: -4px;
+}
+
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="week"],
+input[type="month"],
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="number"],
+textarea {
+    background-color: #fff;
+    border: 1px solid #e8e6e6;
+    border-radius: 1px;
+    padding: 0.625em 0.4375em;
+    width: 100%;
+}
+
+input[type="date"]:focus,
+input[type="time"]:focus,
+input[type="datetime-local"]:focus,
+input[type="week"]:focus,
+input[type="month"]:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+    border-color: #ffeb3b;
+    transition: all 0.1s ease-in-out;
+    outline: 0;
+}
+
+select {
+    background-color: #fff;
+    border: 1px solid #e8e6e6;
+    border-radius: 1px;
+    max-width: 100%;
+    padding: 0.625em 0.4375em;
+}
+
+.post-password-form {
+    margin-bottom: 1.75em;
+}
+
+.post-password-form label {
+    display: block;
+    font-size: 13px;
+    font-size: 0.8125rem;
+    letter-spacing: 0.076923077em;
+    line-height: 1.6153846154;
+    margin-bottom: 1.75em;
+    text-transform: uppercase;
+}
+
+.post-password-form input[type="password"] {
+    margin-top: 0.4375em;
+}
+
+blockquote > :last-child,
+.post-password-form > :last-child {
+    margin-bottom: 0;
+}
+
+
+/*--------------------------------------------------------------
+(iPad Portrait)
+## >= 768px
+--------------------------------------------------------------*/
+
+@media screen and (min-width: 48em) {
+	h1,
+	.mce-content-body h1 {
+		font-size: 36px;
+		font-size: 2.25rem;
+	}
+
+	h2,
+	.mce-content-body h2 {
+		font-size: 30px;
+		font-size: 1.875rem;
+	}
+
+	h3,
+	.mce-content-body h3 {
+		font-size: 24px;
+		font-size: 1.5rem;
+		line-height: 1.25;
+	}
+
+	h4,
+	.mce-content-body h4 {
+		font-size: 20px;
+		font-size: 1.25rem;
+	}
+
+	h5,
+	.mce-content-body h5 {
+		font-size: 18px;
+		font-size: 1.125rem;
+	}
+
+	h6,
+	.mce-content-body h6 {
+		font-size: 18px;
+		font-size: 1.125rem;
+	}
+}
+
+
+/*--------------------------------------------------------------
+## >= 1024px
+--------------------------------------------------------------*/
+
+@media screen and (min-width: 64em) {
+	h1,
+	.mce-content-body h1,
+	h2,
+	.mce-content-body h2,
+	h3,
+	.mce-content-body h3,
+	h4,
+	.mce-content-body h4,
+	h5,
+	.mce-content-body h5,
+	h6,
+	.mce-content-body h6 {
+		margin-top: 49px;
+		margin-bottom: 21px;
+	}
+
+	h1,
+	.mce-content-body h1 {
+		font-size: 42px;
+		font-size: 2.625rem;
+	}
+
+	h2,
+	.mce-content-body h2 {
+		font-size: 36px;
+		font-size: 2.25rem;
+	}
+
+	h3,
+	.mce-content-body h3 {
+		font-size: 28px;
+		font-size: 1.75rem;
+	}
+
+	h4,
+	.mce-content-body h4 {
+		font-size: 24px;
+		font-size: 1.5rem;
+	}
+
+	h5,
+	.mce-content-body h5 {
+		font-size: 20px;
+		font-size: 1.25rem;
+	}
+
+	blockquote {
+		font-size: 20px;
+		font-size: 1.25rem;
+	}
+}	

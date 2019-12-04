@@ -1,0 +1,728 @@
+/*
+Theme Name: Higher Education
+Description: Adds support for languages written in a Right To Left (RTL) direction.
+It's easy, just a matter of overwriting all the horizontal positioning attributes
+of your CSS stylesheet in a separate stylesheet file named rtl.css.
+
+See http://codex.wordpress.org/Right_to_Left_Language_Support
+*/
+
+/*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+
+body {
+	direction: rtl;
+	unicode-bidi: embed;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	margin-right: auto;
+	margin-left: 0.4375em;
+}
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+
+blockquote {
+	padding: 0 49px 0 0;
+}
+
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+
+ul,
+ol {
+	margin: 0 1.5em 1.5em 0;
+}
+
+li > ul,
+li > ol {
+	margin-left: 0;
+	margin-right: 1em;
+}
+
+dd {
+	margin: 0 1.75em 1.375em 0
+}
+
+table {
+	border-width: 1px 1px 0 0;
+}
+
+caption,
+th,
+td {
+	text-align: right;
+}
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Menus
+--------------------------------------------------------------*/
+
+.main-navigation {
+    text-align: right;
+}
+
+.main-navigation ul {
+    padding-right: 0;
+}
+
+.main-navigation ul ul ul {
+	right: -999em;
+	left: auto;
+}
+
+.main-navigation ul ul li:hover > ul,
+.main-navigation ul ul li.focus > ul {
+	right: auto;
+	left: 100%;
+}
+
+.main-navigation ul li:hover > ul,
+.main-navigation ul li.focus > ul {
+	right: auto;
+	left: 0;
+}
+
+#header-secondary-menu .main-navigation ul li:hover > ul,
+#header-secondary-menu .main-navigation ul li.focus > ul {
+	right: 0;
+	left: auto;
+}
+
+#header-secondary-menu .main-navigation ul ul li:hover > ul,
+#header-secondary-menu .main-navigation ul ul li.focus > ul {
+	right: 100%;
+	left: auto;
+}
+
+.main-navigation li {
+	padding-right: 0;
+}
+
+.main-navigation .menu-item-has-children > a,
+.main-navigation .page_item_has_children > a {
+	padding-left: 37px;
+	padding-right: 0;
+}
+
+.dropdown-toggle {
+	right: auto;
+	left: 0;
+}
+
+.menu-item-has-children > a:before,
+.menu-item-has-children .menu-item-has-children a:before,
+.page_item_has_children > a:before,
+.page_item_has_children .page_item_has_children a:before {
+	right: auto;
+	left: 21px;
+}
+
+.dropdown-toggle.toggled-on:before,
+.widget_nav_menu .menu-item-has-children .on:before,
+.widget_nav_menu .page_item_has_children .on:before {
+	transform: rotate(180deg);
+}
+
+.sub-menu.toggled-on li a,
+.children.toggled-on li a {
+	padding-right: 15px;
+}
+
+.sub-menu.toggled-on li li a,
+.children.toggled-on li li a {
+	padding-right: 30px;
+}
+
+.sub-menu.toggled-on li li li a,
+.children.toggled-on li li li a {
+	padding-right: 45px;
+}
+
+.menu-social-container {
+	text-align: right;
+}
+
+#masthead .site-header-menu.toggled-on:before  {
+	margin-right: -30px;
+}
+
+.site-header-menu.toggled-on:before {
+	margin-right: -40px;
+}
+
+.menu-label {
+	padding-right: 5px;
+	padding-left: 0;
+}
+
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+	float: right;
+}
+
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+	float: left;
+	text-align: left;
+}
+
+.search-submit {
+	right: auto;
+	left: 0;
+}
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Posts and pages
+--------------------------------------------------------------*/
+
+.page-links a,
+.page-links > span {
+	margin-right: 0;
+	margin-left: 5px;
+}
+
+.page-links .pages {
+	margin-left: 0;
+	padding-right: 0;
+}
+
+/*--------------------------------------------------------------
+## Comments
+--------------------------------------------------------------*/
+
+.comment-author img {
+	float: right;
+	margin-right: 0;
+	margin-left: 21px;
+}
+
+.comment-list .comment {
+	padding-right: 0;
+}
+
+.comment-reply-link {
+	padding-right: 21px;
+	padding-left: 0;
+}
+
+.comment-reply-link:before {
+	right: 0;
+	left: auto;
+}
+
+.comment-content,
+.reply,
+.no-comments {
+	margin-right: 71px;
+	margin-left: 0;
+}
+
+#cancel-comment-reply-link {
+	right: auto;
+	left: 14px;
+}
+
+#cancel-comment-reply-link:before {
+	padding-right: 0;
+	padding-left: 3px;
+}
+
+.comment-subscription-form label {
+	margin-right: 5px;
+	margin-left: 0;
+}
+
+
+/*--------------------------------------------------------------
+# Layout
+--------------------------------------------------------------*/
+
+.layout-two-columns .page-header {
+	text-align: right;
+}
+
+.readmore .fa-long-arrow-right {
+	padding-right: 12px;
+	padding-left: 0;
+}
+
+/*--------------------------------------------------------------
+## Header
+--------------------------------------------------------------*/
+
+#masthead .wrapper:before {
+	right: 0;
+	left: auto;
+}
+
+.custom-header-media img,
+.custom-header-media video,
+.custom-header-media iframe {
+	right: 0;
+	left: auto;
+}
+
+
+/* For browsers that support 'object-fit' */
+@supports ( object-fit: cover ) {
+	.custom-header-media img,
+	.custom-header-media video,
+	.custom-header-media iframe {
+		right: 0;
+		left: auto;
+	}
+}
+
+
+/*--------------------------------------------------------------
+## Main Slider
+--------------------------------------------------------------*/
+
+#slider-section .entry-header,
+#slider-section .entry-summary,
+#slider-section .entry-content {
+	float: right;
+}
+
+#slider-section #main-slider-cycle-prev span {
+	padding-right: 5px;
+	padding-left: 0;
+}
+
+#slider-section #main-slider-cycle-next  span {
+	padding-left: 5px;
+	padding-right: 0;
+}
+
+/*--------------------------------------------------------------
+## Recent Courses
+--------------------------------------------------------------*/
+
+#courses-section .hentry,
+#news-section .hentry,
+#events-section .hentry,
+#events-section .entry-container,
+.content-area .hentry,
+.ct-featured-post .hentry,
+.widget.essential-widgets .hentry {
+	text-align: right;
+}
+
+#courses-section .content-next span {
+	float: right;
+	padding-right: 0;
+	padding-left: 10px;
+}
+
+#courses-section .content-prev span {
+	padding-right: 10px;
+	padding-left: 0;
+}
+
+/*--------------------------------------------------------------
+## Our Professors
+--------------------------------------------------------------*/
+
+.menu-social-container a,
+#menu-social li a,
+.widget_higher_education_social_icons a {
+	margin: 0 0 10px 10px;
+}
+
+/*--------------------------------------------------------------
+## Testimonials
+--------------------------------------------------------------*/
+
+#testimonial-section .testimonial_slider_wrap .hentry,
+#testimonial-section .testimonial_slider_wrap {
+	float: right;
+}
+
+blockquote:before {
+	right: -5px;
+	left: auto;
+}
+
+/*--------------------------------------------------------------
+## Recent Events
+--------------------------------------------------------------*/
+
+#events-section .entry-container .entry-wrap {
+	padding: 0 0 7px 7px;
+}
+
+#events-section .entry-header .entry-meta {
+	margin-right: 0;
+	margin-left: 21px
+}
+
+#events-section .entry-footer .entry-meta .fa {
+	padding-right: 0;
+	padding-left: 7px;
+}
+
+/*--------------------------------------------------------------
+## Site Content
+--------------------------------------------------------------*/
+
+.post-navigation .nav-links {
+	text-align: right;
+}
+
+/*--------------------------------------------------------------
+## Widgets and Widget Area
+--------------------------------------------------------------*/
+
+.sidebar-primary.widget-area li,
+.site-footer .widget-area li  {
+	padding-right: 0;
+}
+
+.widget_nav_menu .menu-item-has-children > a:before,
+.widget_nav_menu .page_item_has_children > a:before {
+	right: auto;
+	left: 20px;
+}
+
+.tagcloud a,
+.cat-links a,
+.tags-links a,
+.post-categories a {
+    margin: 7px 0 7px 7px;
+}
+
+.post-categories li {
+	padding-right: 0;
+}
+
+/* Categories widget */
+.widget_categories ul,
+.widget_archive ul {
+	text-align: left;
+}
+
+.widget_categories ul a,
+.widget_archive ul a {
+	float: right;
+}
+
+/*--------------------------------------------------------------
+## Footer
+--------------------------------------------------------------*/
+
+#supplementary .widget-area ul li {
+	padding-right: 18px;
+}
+
+#supplementary .widget-area ul li:before {
+	right: 0;
+	left: auto;
+	transform: rotate(270deg);
+}
+
+/*--------------------------------------------------------------
+## Breadcumb
+--------------------------------------------------------------*/
+
+.breadcrumb-current {
+	padding-right: 0;
+	padding-left: 7px;
+}
+
+/*--------------------------------------------------------------
+## Back to Top
+--------------------------------------------------------------*/
+
+#scrollup {
+	right: auto;
+	left: 20px;
+}
+
+.error-404.not-found ul {
+	margin-right: 0;
+}
+
+
+/*Style Guide*/
+.drop-cap:first-letter {
+	float: right;
+	margin: 8px -8px 0 15px;
+}
+
+.archive.layout-one-column  .site-main .entry-header,
+.blog.layout-one-column  .site-main .entry-header {
+	text-align: right;
+}
+
+/*--------------------------------------------------------------
+# Media Queries
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+iPhone 5, 5S, 5C and 5SE -----------
+## >= 568px
+--------------------------------------------------------------*/
+
+@media screen and (min-width: 35.5em) {
+	.site-header-main {
+		text-align: right;
+	}
+
+	.sections .hentry,
+	.site-footer .wrapper .widget-area {
+		float: right;
+	}
+
+	#hero-section .entry-container {
+        padding: 0 0 0 20px;
+	}
+
+	#hero-section .featured-image {
+        padding: 0 20px 0 0;
+	}
+
+	#hero-section .hentry {
+		text-align: right;
+	}
+
+	.promotion-buttons .readmore {
+		margin-right: 14px;
+	}
+
+	#nav-below .prev,
+	.nav-previous {
+		float: right;
+	}
+
+	#nav-below .next,
+	.nav-next {
+		float: left;
+	}
+}
+
+/*--------------------------------------------------------------
+(iPhone Landscape)
+## >= 667px
+--------------------------------------------------------------*/
+
+@media screen and (min-width: 41.6875em) {
+	.main-navigation ul li,
+	.sections.layout-two .hentry,
+	.sections.layout-three .hentry,
+	.section-content-wrap,
+	.hentry,
+	.footer-menu-wrapper,
+	.site-info {
+		text-align: right;
+	}
+
+	#events-section .entry-container > .entry-meta {
+		margin-right: 0;
+		margin-left: 35px;
+	}
+
+	#events-section .entry-header {
+		margin-left: auto;
+	}
+}
+
+/*--------------------------------------------------------------
+(iPad Portrait)
+## >= 768px
+--------------------------------------------------------------*/
+
+@media screen and (min-width: 48em) {
+	#slider-section .entry-header,
+	#slider-section .entry-summary,
+	#slider-section .entry-content {
+		float: right;
+	}
+
+	#slider-section .entry-container {
+		text-align: right;
+	}
+
+	.promotion-buttons .readmore:first-child {
+		margin-right: 0;
+	}
+
+	.footer-menu li:first-child {
+		padding-right: 0;
+	}
+
+	#footer-social a:last-child {
+		margin-left: 0;
+	}
+
+	ol.children {
+		margin-right: 1em;
+		margin-left: 0;
+	}
+
+	.comment-form-author,
+	.comment-form-email,
+	.comment-form-url {
+		padding-right: 0;
+		padding-left: 26px;
+	}
+
+	.comment-form-url {
+		padding-left: 0;
+	}
+}
+
+/*--------------------------------------------------------------
+(iPad, Nexus7 Landscape)
+## >= 906px
+--------------------------------------------------------------*/
+
+@media screen and (min-width: 56.625em) {
+	.sections.layout-four .hentry {
+		text-align: right;
+	}
+
+	.comment-author img {
+		margin-right: 0;
+		margin-left: 28px;
+	}
+
+	.comment-content,
+	.reply,
+	.no-comments {
+		margin-right: 128px;
+		margin-left: 0;
+	}
+
+	.site-info.two #footer-right-content,
+	.footer-menu-wrapper.two .nav-footer,
+	.footer-menu-wrapper.two #footer-social {
+		float: right;
+	}
+
+	.footer-menu-wrapper.two .nav-footer,
+	.site-info.two #footer-left-content {
+		text-align: right;
+	}
+
+	.site-info.two #footer-right-content,
+	.footer-menu-wrapper.two #footer-social {
+		text-align: left;
+		float: left;
+	}
+}
+
+/*--------------------------------------------------------------
+## >= 1024px
+--------------------------------------------------------------*/
+
+@media screen and (min-width: 64em) {
+	#header-secondary-menu .main-navigation ul {
+		float: right;
+	}
+
+	.main-navigation ul {
+		float: left;
+	}
+
+	.main-navigation .menu-item-has-children > a,
+	.main-navigation .page_item_has_children > a {
+		padding-left: 21px;
+	}
+
+	.main-navigation ul ul .menu-item-has-children > a,
+	.main-navigation ul ul .page_item_has_children > a {
+		padding-left: 31px;
+		padding-right: 24px;
+	}
+
+	.primary-menu .menu-item-has-children .menu-item-has-children > a:before,
+	.primary-menu .page_item_has_children .page_item_has_children > a:before {
+		transform: rotate(270deg);
+	}
+
+	.main-navigation ul ul {
+		float: right;
+		right: -999em;
+		left: auto;
+	}
+
+	.search-container,
+	.menu-social-container {
+		right: auto;
+		left: -10px;
+	}
+
+	.menu-social-container {
+		right: auto;
+		left: 37px;
+	}
+
+	#hero-section .featured-image {
+		padding: 0 40px 0 60px;
+	}
+
+	#hero-section .entry-container {
+		padding: 0 60px 0 40px;
+	}
+
+	.content-left .content-area {
+		float: right;
+		padding-right: 0;
+		padding-left: 40px;
+	}
+
+	.content-left .sidebar-primary {
+		float: left;
+	}
+
+	.content-right .content-area {
+		float: left;
+		padding-right: 40px;
+		padding-left: 0;
+	}
+
+	.content-right .sidebar-primary {
+		float: right;
+	}
+
+	.excerpt-image-left .has-post-thumbnail .archive-post-wrap .entry-container {
+		padding: 0 42px 0 0;
+	}
+}
+
+/*--------------------------------------------------------------
+## >= 1200px
+--------------------------------------------------------------*/
+
+@media screen and (min-width: 75em) {
+	#slider-section .slider-controls {
+	    right: 0;
+	    left: auto;
+	    text-align: right;
+	}
+
+	#hero-section .featured-image {
+		padding: 0 80px 0 120px;
+	}
+
+	#hero-section .entry-container {
+		padding: 0 120px 0 80px;
+	}
+
+	#events-section .entry-title {
+		padding: 14px 0 14px 35px;
+	}
+}
