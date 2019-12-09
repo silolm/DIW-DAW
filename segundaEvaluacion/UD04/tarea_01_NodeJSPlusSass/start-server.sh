@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # Sanity Checks
 if [ ! -x $(which npm) ]; then
     echo " * ERROR : instala npm :  sudo apt install npm"
