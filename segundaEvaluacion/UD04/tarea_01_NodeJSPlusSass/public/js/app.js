@@ -1,4 +1,4 @@
-const fuentesUrl = "http://mapas.valencia.es/lanzadera/opendata/cia_fuentes/JSON";
+const fuentesUrl = "http://mapas.valencia.es/lanzadera/opendata/Monumentos_falleros/JSON";
 
 // Esta es la funcion de filtrado para
 // obtener tan solo los elementos que cumplen
