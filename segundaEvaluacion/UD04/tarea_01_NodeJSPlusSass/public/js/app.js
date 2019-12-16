@@ -1,61 +1,50 @@
 const fallasUrl = 'http://mapas.valencia.es/lanzadera/opendata/Monumentos_falleros/JSON';
 let busquedaDeFallas;
 
-
-function secciones(){    
-    let opciones = document.querySelector('select');
+function secciones() {
+    let select = document.querySelector('select');
 
     // Set -> ArrayList que sólo nos añade los valores que no se repitan dentro de un array;
     let seccion = new Set;
-
     // Primer valor del Select [Sección] -> TODAS
     seccion.add('Todas');
-
-    seccion.array.forEach(option => {
-        let list;
-        
-        // Obtener un 'option' por cada sección del JSON
-        list = document.createElement('option');
-        
-        // Le añadimos su valor;
-        list.innerText = option;
-
-        // Le decimos a quien pertenece;
-        opciones.appendChild(list);
-    });
-
 
     // Alojamos la lista de Fallas del JSON en -> featureSearch;
     let featureSearch = busquedaDeFallas.features;
 
-    featureSearch.array.forEach(element => {
-        seccion.add(element.propierties.seccion);
+    featureSearch.forEach(element => {
+        // Obtener un 'option' por cada sección del JSON
+        seccion.add(element.properties.seccion);
     });
 
-    
-    document.querySelector('label[for="selector"]').insertBefore(opciones, document.querySelector('form'));
+    seccion.forEach(element => {
+        //Creamos el elemento option para el select;
+        let option = document.createElement('option');
+        // Y le añadimos el valor dentro del List;
+        option.innerText = element;
+        select.appendChild(option);
+    });
 }
 
 function buscar() {
-   
+
 }
 
 function safeData() {
-    fetch(fallasUrl).then(response => {
+    return fetch(fallasUrl).then(response => {
         // la pasamos a JSON
         return response.json();
         // Y entonces
     }).then(busqueda => {
-        console.log(busqueda);
         busquedaDeFallas = busqueda;
     });
 }
 
 async function init() {
     await safeData();
+
     secciones();
-    
-    
+
     document.querySelector('select').addEventListener('change', buscar);
     document.getElementById('desde').addEventListener('change', buscar);
     document.getElementById('hasta').addEventListener('change', buscar);
