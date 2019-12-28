@@ -51,9 +51,34 @@ function buscar() {
 }
 
 function cargarBocetos() {
+    let contenedor = document.getElementById('resultados');
+    contenedor.innerHTML = '';
 
-
+    busquedaActual.forEach((element) => {
+        contenedor.appendChild(cargarBoceto(element));
+    });
 }
+
+function cargarBoceto(falla) {
+    let caja = document.createElement('div');
+    caja.classList.add('contenedorFalla');
+
+    let nombre = document.createElement('h3');
+    nombre.innerText = falla.nombre;
+
+    let boceto = document.createElement('img');
+    boceto.setAttribute('src', falla.boceto);
+
+    let ubicacion = document.createElement('button');
+    ubicacion.innerText = 'Ubicación';
+
+    caja.appendChild(boceto);
+    caja.appendChild(nombre);
+    caja.appendChild(ubicacion);
+
+    return caja;
+}
+
 
 function saveData() {
     return fetch(fallasUrl).then(response => {
@@ -67,6 +92,7 @@ function saveData() {
                 seccion: element.properties.seccion,
                 anyo: element.properties.anyo_fundacion,
                 boceto: element.properties.boceto,
+
                 infantil: false
             },
             {
@@ -83,7 +109,7 @@ function saveData() {
 
 async function init() {
     await saveData();
-
+    cargarBocetos();
     secciones();
 
     document.querySelector('select').addEventListener('change', buscar);
