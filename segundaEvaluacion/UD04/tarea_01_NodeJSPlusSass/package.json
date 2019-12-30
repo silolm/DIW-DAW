@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "keywords": [
     "MongoDB"
@@ -15,5 +16,7 @@
     "mongodb": "^3.4.0",
     "nodemon": "^2.0.2",
     "npm-check-updates": "^4.0.1"
-  }
+  },
+  "author": "Mario Silla Olmos",
+  "license": "MIT"
 }
