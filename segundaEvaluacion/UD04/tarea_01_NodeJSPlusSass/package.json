@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "sass:compile": "node-sass --include-path sass scss/styles.scss public/css/styles.css"
   },
   "keywords": [
     "MongoDB"
@@ -18,5 +19,8 @@
     "npm-check-updates": "^4.0.1"
   },
   "author": "Mario Silla Olmos",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "node-sass": "^4.13.0"
+  }
 }
