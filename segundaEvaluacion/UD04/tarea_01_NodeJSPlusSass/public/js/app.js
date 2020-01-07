@@ -92,7 +92,6 @@ function saveData() {
                 seccion: element.properties.seccion,
                 anyo: element.properties.anyo_fundacion,
                 boceto: element.properties.boceto,
-
                 infantil: false
             },
             {
