@@ -1,6 +1,7 @@
 const fallasUrl = 'http://mapas.valencia.es/lanzadera/opendata/Monumentos_falleros/JSON';
 let busquedaDeFallas;
 let busquedaActual;
+let ipCliente;
 
 function secciones() {
     let select = document.querySelector('select');
@@ -62,6 +63,7 @@ function cargarBocetos() {
 function cargarBoceto(falla) {
     let caja = document.createElement('div');
     caja.classList.add('contenedorFalla');
+    caja.setAttribute('id_falla', falla.id);
 
     let nombre = document.createElement('h3');
     nombre.innerText = falla.nombre;
@@ -73,26 +75,40 @@ function cargarBoceto(falla) {
     ubicacion.innerText = 'Ubicación';
 
     let puntuacion = document.createElement('input');
-    puntuacion.setAttribute('type', 'radio');
-    puntuacion.addEventListener('click', puntuar);
+    puntuacion.setAttribute('type', 'number');
+    puntuacion.addEventListener('change', () => {
+        puntuar(falla.id, puntuacion);
+    });
 
     caja.appendChild(boceto);
     caja.appendChild(nombre);
     caja.appendChild(ubicacion);
-    caja.appendChild(puntuar);
+    caja.appendChild(puntuacion);
 
     return caja;
 }
 
-function puntuar() {
+function puntuar(idFalla, puntuacion) {
+
+    let datos = {
+        idFalla: idFalla,
+        ip: ipCliente.ip,
+        puntuacion: puntuacion
+    };
+
+    console.log(datos);
+
     fetch('/puntuaciones', {
         method: 'POST',
-        body: {
-            idFalla: "133",
-            ip: "127.0.0.2",
-            puntuacion: 1
+        body: JSON.stringify(datos),
+        headers: {
+            "content-type": "application/json"
         }
-    }).then();
+
+    }).then(res => (res.json()))
+        .catch(error => {
+            console.log(error);
+        })
 }
 
 function saveData() {
@@ -103,6 +119,7 @@ function saveData() {
     }).then(busqueda => {
         busquedaDeFallas = busqueda.features.reduce((buffer, element) => buffer.concat([
             {
+                id: element.properties.id,
                 nombre: element.properties.nombre,
                 seccion: element.properties.seccion,
                 anyo: element.properties.anyo_fundacion,
@@ -110,6 +127,7 @@ function saveData() {
                 infantil: false
             },
             {
+                id: element.properties.id,
                 nombre: element.properties.nombre,
                 seccion: element.properties.seccion_i,
                 anyo: element.properties.anyo_fundacion_i,
@@ -121,8 +139,13 @@ function saveData() {
     });
 }
 
+function getIP() {
+    return fetch('https://api6.ipify.org?format=json').then(ip => ip.json());
+}
+
 async function init() {
     await saveData();
+    ipCliente = await getIP();
     cargarBocetos();
     secciones();
 

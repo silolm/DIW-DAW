@@ -13,7 +13,6 @@ exports.findAll = (req, res) => {
 
 };
 
-
 // Crear y salvar
 exports.create = (req, res) => {
 
