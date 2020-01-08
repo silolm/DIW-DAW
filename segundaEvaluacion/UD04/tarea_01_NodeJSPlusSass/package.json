@@ -13,8 +13,10 @@
     "MongoDB"
   ],
   "dependencies": {
+    "body-parser": "latest",
     "express": "^4.17.1",
     "mongodb": "^3.4.1",
+    "mongoose": "^4.13.20",
     "nodemon": "^2.0.2",
     "npm-check-updates": "^4.0.1"
   },
