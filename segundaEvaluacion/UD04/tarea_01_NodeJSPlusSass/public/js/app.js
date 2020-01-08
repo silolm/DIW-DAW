@@ -72,13 +72,28 @@ function cargarBoceto(falla) {
     let ubicacion = document.createElement('button');
     ubicacion.innerText = 'Ubicación';
 
+    let puntuacion = document.createElement('input');
+    puntuacion.setAttribute('type', 'radio');
+    puntuacion.addEventListener('click', puntuar);
+
     caja.appendChild(boceto);
     caja.appendChild(nombre);
     caja.appendChild(ubicacion);
+    caja.appendChild(puntuar);
 
     return caja;
 }
 
+function puntuar() {
+    fetch('/puntuaciones', {
+        method: 'POST',
+        body: {
+            idFalla: "133",
+            ip: "127.0.0.2",
+            puntuacion: 1
+        }
+    }).then();
+}
 
 function saveData() {
     return fetch(fallasUrl).then(response => {
