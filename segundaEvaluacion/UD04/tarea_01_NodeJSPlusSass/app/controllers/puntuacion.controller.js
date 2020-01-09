@@ -25,9 +25,9 @@ exports.create = (req, res) => {
     }
 
     const puntuacion = new Puntuacion({
-        idFalla: req.body.idFalla || "idFallaVacio",
-        ip: req.body.ip || "127.0.0.1",
-        puntuacion: req.body.puntuacion || 42
+        idFalla: req.body.idFalla || "NULL",
+        ip: req.body.ip || "0.0.0.0",
+        puntuacion: req.body.puntuacion || 9999
     });
     console.log(puntuacion);
     puntuacion.save().then(data => {

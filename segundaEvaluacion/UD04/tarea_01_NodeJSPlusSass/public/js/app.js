@@ -74,10 +74,26 @@ function cargarBoceto(falla) {
     let ubicacion = document.createElement('button');
     ubicacion.innerText = 'Ubicación';
 
-    let puntuacion = document.createElement('input');
-    puntuacion.setAttribute('type', 'number');
-    puntuacion.addEventListener('change', () => {
-        puntuar(falla.id, puntuacion);
+    let puntuacion = document.createElement('form');
+    puntuacion.setAttribute('id_form', falla.id);
+    puntuacion.innerHTML =
+        '    <label for="radio1">★</label>\n' +
+        '    <input id="radio1" type="radio" value="1">\n' +
+        '\n' +
+        '    <label for="radio2">★</label>\n' +
+        '    <input id="radio2" type="radio" value="2">\n' +
+        '\n' +
+        '    <label for="radio3">★</label>\n' +
+        '    <input id="radio3" type="radio" value="3">\n' +
+        '\n' +
+        '    <label for="radio4">★</label>\n' +
+        '    <input id="radio4" type="radio" value="4">\n' +
+        '\n' +
+        '    <label for="radio5">★</label>\n' +
+        '    <input id="radio5" type="radio" value="5">';
+
+    puntuacion.addEventListener('click', () => {
+        puntuar(falla.id, puntuacion.value);
     });
 
     caja.appendChild(boceto);
