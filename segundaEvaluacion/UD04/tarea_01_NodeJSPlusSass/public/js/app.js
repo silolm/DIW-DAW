@@ -63,7 +63,7 @@ function cargarBocetos() {
 function cargarBoceto(falla) {
     let caja = document.createElement('div');
     caja.classList.add('contenedorFalla');
-    caja.setAttribute('id_falla', falla.id);
+    caja.dataset.idFalla = falla.id;
 
     let nombre = document.createElement('h3');
     nombre.innerText = falla.nombre;
@@ -76,24 +76,35 @@ function cargarBoceto(falla) {
 
     let puntuacion = document.createElement('form');
     puntuacion.setAttribute('id_form', falla.id);
-    puntuacion.innerHTML =
-        '    <label for="radio1">★</label>\n' +
-        '    <input id="radio1" type="radio" value="1">\n' +
-        '\n' +
-        '    <label for="radio2">★</label>\n' +
-        '    <input id="radio2" type="radio" value="2">\n' +
-        '\n' +
-        '    <label for="radio3">★</label>\n' +
-        '    <input id="radio3" type="radio" value="3">\n' +
-        '\n' +
-        '    <label for="radio4">★</label>\n' +
-        '    <input id="radio4" type="radio" value="4">\n' +
-        '\n' +
-        '    <label for="radio5">★</label>\n' +
-        '    <input id="radio5" type="radio" value="5">';
+    puntuacion.innerHTML = `
+            <label for=${falla.id + 1}>★</label>
+            <input id=${falla.id + 1} name="voto" type="radio" value="1">
+        
+            <label for=${falla.id + 2}>★</label>
+            <input id=${falla.id + 2} name="voto" type="radio" value="2">
+        
+            <label for=${falla.id + 3}>★</label>
+            <input id=${falla.id + 3} name="voto" type="radio" value="3">
+        
+            <label for=${falla.id + 4}>★</label>
+            <input id=${falla.id + 4} name="voto" type="radio" value="4">
+        
+            <label for=${falla.id + 5}>★</label>
+            <input id=${falla.id + 5} name="voto" type="radio" value="5">`;
 
     puntuacion.addEventListener('click', () => {
-        puntuar(falla.id, puntuacion.value);
+        if (document.getElementById(`${falla.id + 1}`).checked)
+            puntuacion = document.getElementById(`${falla.id + 1}`).value;
+        if (document.getElementById(`${falla.id + 2}`).checked)
+            puntuacion = document.getElementById(`${falla.id + 2}`).value;
+        if (document.getElementById(`${falla.id + 3}`).checked)
+            puntuacion = document.getElementById(`${falla.id + 3}`).value;
+        if (document.getElementById(`${falla.id + 4}`).checked)
+            puntuacion = document.getElementById(`${falla.id + 4}`).value;
+        if (document.getElementById(`${falla.id + 5}`).checked)
+            puntuacion = document.getElementById(`${falla.id + 5}`).value;
+
+        puntuar(falla.id, puntuacion);
     });
 
     caja.appendChild(boceto);
@@ -120,11 +131,20 @@ function puntuar(idFalla, puntuacion) {
         headers: {
             "content-type": "application/json"
         }
-
     }).then(res => (res.json()))
         .catch(error => {
             console.log(error);
-        })
+        });
+
+
+    fetch('/puntuaciones/:5e1774a61dc30e2e4244bd44', {
+        method: 'GET',
+        headers: {
+            "content-type": "application/json"
+        }
+    }).then(function (res) {
+        console.log(res);   
+    });
 }
 
 function saveData() {
@@ -170,6 +190,8 @@ async function init() {
     document.getElementById('hasta').addEventListener('change', buscar);
     document.getElementById('principal').addEventListener('click', buscar);
     document.getElementById('infantil').addEventListener('click', buscar);
+
+
 }
 
 window.onload = init;

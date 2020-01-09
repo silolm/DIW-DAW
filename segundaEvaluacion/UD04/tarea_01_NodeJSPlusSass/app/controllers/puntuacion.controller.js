@@ -13,6 +13,32 @@ exports.findAll = (req, res) => {
 
 };
 
+// Obtener una ptc con un id
+exports.findOne = (req, res) => {
+    Puntuacion.find({_id: '5e1774a61dc30e2e4244bd44'}).then(puntuaciones => {
+        res.send(puntuaciones);
+    }).catch(err => {
+        res.status(500).send({
+            message: err.message || " Algo fue mal mientras los capturabamos a todos"
+        });
+    });
+
+};
+
+// Obtener una id.punt con un idFalla y una ip
+exports.findIdPuntuacion = (req, res) => {
+
+    Puntuacion.find().then(puntuaciones => {
+        res.send(puntuaciones);
+    }).catch(err => {
+        res.status(500).send({
+            message: err.message || " Algo fue mal mientras los capturabamos a todos"
+        });
+    });
+
+};
+
+
 // Crear y salvar
 exports.create = (req, res) => {
 
