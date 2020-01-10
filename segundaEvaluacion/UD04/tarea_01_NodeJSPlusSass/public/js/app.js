@@ -65,57 +65,50 @@ function cargarBoceto(falla) {
     caja.classList.add('contenedorFalla');
     caja.dataset.idFalla = falla.id;
 
-    let nombre = document.createElement('h3');
-    nombre.innerText = falla.nombre;
+    caja.innerHTML = `
+        <img src="${falla.boceto}">
 
-    let boceto = document.createElement('img');
-    boceto.setAttribute('src', falla.boceto);
+        <h3>${falla.nombre}</h3>
 
-    let ubicacion = document.createElement('button');
-    ubicacion.innerText = 'Ubicación';
+        <button>Ubicación</button>
 
-    let puntuacion = document.createElement('form');
-    puntuacion.setAttribute('id_form', falla.id);
-    puntuacion.innerHTML = `
-            <label for=${falla.id + 1}>★</label>
-            <input id=${falla.id + 1} name="voto" type="radio" value="1">
-        
-            <label for=${falla.id + 2}>★</label>
-            <input id=${falla.id + 2} name="voto" type="radio" value="2">
-        
-            <label for=${falla.id + 3}>★</label>
-            <input id=${falla.id + 3} name="voto" type="radio" value="3">
-        
-            <label for=${falla.id + 4}>★</label>
-            <input id=${falla.id + 4} name="voto" type="radio" value="4">
-        
-            <label for=${falla.id + 5}>★</label>
-            <input id=${falla.id + 5} name="voto" type="radio" value="5">`;
+        <label for=${falla.infantil ? falla.id + 1 : falla.id + 2}>★</label>
+        <input id=${falla.infantil ? falla.id + 1 : falla.id + 2} name="voto" type="radio" value="1">
+    
+        <label for=${falla.infantil ? falla.id + 3 : falla.id + 4}>★</label>
+        <input id=${falla.infantil ? falla.id + 3 : falla.id + 4} name="voto" type="radio" value="2">
+    
+        <label for=${falla.infantil ? falla.id + 5 : falla.id + 6}>★</label>
+        <input id=${falla.infantil ? falla.id + 5 : falla.id + 6} name="voto" type="radio" value="3">
+    
+        <label for=${falla.infantil ? falla.id + 7 : falla.id + 8}>★</label>
+        <input id=${falla.infantil ? falla.id + 7 : falla.id + 8} name="voto" type="radio" value="4">
+    
+        <label for=${falla.infantil ? falla.id + 9 : falla.id + 10}>★</label>
+        <input id=${falla.infantil ? falla.id + 9 : falla.id + 10} name="voto" type="radio" value="5">
+     `;
 
-    puntuacion.addEventListener('click', () => {
-        if (document.getElementById(`${falla.id + 1}`).checked)
-            puntuacion = document.getElementById(`${falla.id + 1}`).value;
-        if (document.getElementById(`${falla.id + 2}`).checked)
-            puntuacion = document.getElementById(`${falla.id + 2}`).value;
-        if (document.getElementById(`${falla.id + 3}`).checked)
-            puntuacion = document.getElementById(`${falla.id + 3}`).value;
-        if (document.getElementById(`${falla.id + 4}`).checked)
-            puntuacion = document.getElementById(`${falla.id + 4}`).value;
-        if (document.getElementById(`${falla.id + 5}`).checked)
-            puntuacion = document.getElementById(`${falla.id + 5}`).value;
+    let inputs = caja.querySelectorAll('input');
 
-        puntuar(falla.id, puntuacion);
-    });
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].addEventListener('click', () => {
+            let puntuacion;
 
-    caja.appendChild(boceto);
-    caja.appendChild(nombre);
-    caja.appendChild(ubicacion);
-    caja.appendChild(puntuacion);
+            for (let i = 1; i <= 10; i++) {
+                if (document.getElementById(`${falla.id + i}`).checked)
+                    puntuacion = document.getElementById(`${falla.id + i}`).value;
+            }
+
+            puntuar(falla.id, puntuacion);
+        });
+    }
 
     return caja;
 }
 
-function puntuar(idFalla, puntuacion) {
+async function puntuar(idFalla, puntuacion) {
+    let esValido = await existe(idFalla, ipCliente.ip);
+    console.log(esValido);
 
     let datos = {
         idFalla: idFalla,
@@ -135,15 +128,13 @@ function puntuar(idFalla, puntuacion) {
         .catch(error => {
             console.log(error);
         });
+}
 
-
-    fetch('/puntuaciones/:5e1774a61dc30e2e4244bd44', {
-        method: 'GET',
-        headers: {
-            "content-type": "application/json"
-        }
-    }).then(function (res) {
-        console.log(res);   
+function existe(idFalla, ip) {
+    return fetch('/puntuaciones/' + idFalla + '/' + ip).
+    then(res => res.json()).
+    then(res => {
+        return res.length !== 0;
     });
 }
 
@@ -190,7 +181,6 @@ async function init() {
     document.getElementById('hasta').addEventListener('change', buscar);
     document.getElementById('principal').addEventListener('click', buscar);
     document.getElementById('infantil').addEventListener('click', buscar);
-
 
 }
 

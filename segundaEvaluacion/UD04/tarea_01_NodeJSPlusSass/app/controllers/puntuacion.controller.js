@@ -2,7 +2,6 @@ const Puntuacion = require('../models/puntuacion.model.js');
 
 // Obtener todos los puntuaciones
 exports.findAll = (req, res) => {
-
     Puntuacion.find().then(puntuaciones => {
         res.send(puntuaciones);
     }).catch(err => {
@@ -13,21 +12,19 @@ exports.findAll = (req, res) => {
 
 };
 
-// Obtener una ptc con un id
+// Obtener una puntuacion con un id
 exports.findOne = (req, res) => {
-    Puntuacion.find({_id: '5e1774a61dc30e2e4244bd44'}).then(puntuaciones => {
+    Puntuacion.find({idFalla: req.params.idFalla, ip: req.params.ip}).then(puntuaciones => {
         res.send(puntuaciones);
     }).catch(err => {
         res.status(500).send({
             message: err.message || " Algo fue mal mientras los capturabamos a todos"
         });
     });
-
 };
 
-// Obtener una id.punt con un idFalla y una ip
+// Obtener una id.puntuacion con un idFalla y una ip
 exports.findIdPuntuacion = (req, res) => {
-
     Puntuacion.find().then(puntuaciones => {
         res.send(puntuaciones);
     }).catch(err => {
@@ -37,7 +34,6 @@ exports.findIdPuntuacion = (req, res) => {
     });
 
 };
-
 
 // Crear y salvar
 exports.create = (req, res) => {
