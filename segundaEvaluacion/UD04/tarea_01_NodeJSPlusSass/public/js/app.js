@@ -66,7 +66,7 @@ function cargarBoceto(falla) {
     caja.dataset.idFalla = falla.id;
 
     caja.innerHTML = `
-        <img src="${falla.boceto}">
+        <img src="${falla.boceto}" alt="emblema">
 
         <h3>${falla.nombre}</h3>
 
@@ -93,22 +93,19 @@ function cargarBoceto(falla) {
     for (let i = 0; i < inputs.length; i++) {
         inputs[i].addEventListener('click', () => {
             let puntuacion;
-
             for (let i = 1; i <= 10; i++) {
                 if (document.getElementById(`${falla.id + i}`).checked)
                     puntuacion = document.getElementById(`${falla.id + i}`).value;
             }
-
             puntuar(falla.id, puntuacion);
         });
     }
-
     return caja;
 }
 
 async function puntuar(idFalla, puntuacion) {
-    let esValido = await existe(idFalla, ipCliente.ip);
-    console.log(esValido);
+    let esValido = await get_Id(idFalla, ipCliente.ip);
+    console.log('es valido: ' + esValido.id);
 
     let datos = {
         idFalla: idFalla,
@@ -130,11 +127,15 @@ async function puntuar(idFalla, puntuacion) {
         });
 }
 
-function existe(idFalla, ip) {
+function get_Id(idFalla, ip) {
     return fetch('/puntuaciones/' + idFalla + '/' + ip).
-    then(res => res.json()).
-    then(res => {
-        return res.length !== 0;
+    then(async res => {
+        console.log(res.status);
+        if (res.status != 500) {
+            return await res.json();
+        }
+    }).catch(error => {
+        console.log(error);
     });
 }
 

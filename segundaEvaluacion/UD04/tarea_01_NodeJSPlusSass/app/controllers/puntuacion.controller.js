@@ -12,9 +12,21 @@ exports.findAll = (req, res) => {
 
 };
 
-// Obtener una puntuacion con un id
 exports.findOne = (req, res) => {
-    Puntuacion.find({idFalla: req.params.idFalla, ip: req.params.ip}).then(puntuaciones => {
+    Puntuacion.findOne({idFalla: req.params.idFalla, ip: req.params.ip}).then(puntuaciones => {
+        res.send({
+            id: puntuaciones._id
+        });
+
+    }).catch(err => {
+        res.status(500).send({
+            message: err.message || " Algo fue mal mientras los capturabamos a todos"
+        });
+    });
+};
+
+exports.update = (req, res) => {
+    Puntuacion.updateOne({idFalla: req.params.idFalla, ip: req.params.ip}).then(puntuaciones => {
         res.send(puntuaciones);
     }).catch(err => {
         res.status(500).send({
@@ -23,17 +35,6 @@ exports.findOne = (req, res) => {
     });
 };
 
-// Obtener una id.puntuacion con un idFalla y una ip
-exports.findIdPuntuacion = (req, res) => {
-    Puntuacion.find().then(puntuaciones => {
-        res.send(puntuaciones);
-    }).catch(err => {
-        res.status(500).send({
-            message: err.message || " Algo fue mal mientras los capturabamos a todos"
-        });
-    });
-
-};
 
 // Crear y salvar
 exports.create = (req, res) => {
