@@ -104,7 +104,7 @@ function cargarBoceto(falla) {
 }
 
 async function puntuar(idFalla, puntuacion) {
-     console.log(ipCliente.ip);
+    console.log(ipCliente.ip);
     let esValido = await get_Id(idFalla, ipCliente.ip);
     //console.log('es valido: ' + esValido.puntuaciones._id);
     //console.log(esValido);
@@ -117,7 +117,7 @@ async function puntuar(idFalla, puntuacion) {
     //let valido = esValido.puntuaciones._id);
     console.log(esValido.puntuaciones);
     console.log(datos);
-    if(esValido.puntuaciones === null){
+    if (esValido.puntuaciones === null) {
         fetch('/puntuaciones', {
             method: 'POST',
             body: JSON.stringify(datos),
@@ -128,8 +128,8 @@ async function puntuar(idFalla, puntuacion) {
             .catch(error => {
                 console.log(error);
             });
-    }else{
-        fetch('/puntuaciones/'+esValido.puntuaciones._id, {
+    } else {
+        fetch('/puntuaciones/' + esValido.puntuaciones._id, {
             method: 'PUT',
             body: JSON.stringify(datos),
             headers: {
@@ -140,12 +140,10 @@ async function puntuar(idFalla, puntuacion) {
                 console.log(error);
             });
     }
-
 }
 
 function get_Id(idFalla, ip) {
-    return fetch('/puntuaciones/' + idFalla + '/' + ip).
-    then(res => {        
+    return fetch('/puntuaciones/' + idFalla + '/' + ip).then(res => {
         return res.json();
     }).catch(error => {
         console.log(error);
@@ -165,6 +163,7 @@ function saveData() {
                 seccion: element.properties.seccion,
                 anyo: element.properties.anyo_fundacion,
                 boceto: element.properties.boceto,
+                coordenadas: element.geometry.coordinates,
                 infantil: false
             },
             {
@@ -173,6 +172,7 @@ function saveData() {
                 seccion: element.properties.seccion_i,
                 anyo: element.properties.anyo_fundacion_i,
                 boceto: element.properties.boceto_i,
+                coordenadas: element.geometry.coordinates,
                 infantil: true
             }]), []);
 
@@ -184,11 +184,36 @@ function getIP() {
     return fetch('https://api6.ipify.org?format=json').then(ip => ip.json());
 }
 
+function crearMapa(coordenada) {
+    let mymap = L.map('mapid').setView([coordenada[0], coordenada[1]], 18);
+
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2lsb2xtIiwiYSI6ImNrNTl3Mno0bDExYTUzdXBhbWt6MjhxbmsifQ.CbExNLNeHPKK-4mZOGDhEw', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        accessToken: 'your.mapbox.access.token'
+    }).addTo(mymap);
+
+    return mymap;
+}
+
+
+function popUp(coordenadas, falla) {
+    let descripcion = `
+        <div class="descripcion">
+            <h3>${falla.nombre}</h3>
+            <!--<img src="${falla.boceto}">-->
+        </div>
+`;
+}
+
 async function init() {
     await saveData();
     ipCliente = await getIP();
     cargarBocetos();
     secciones();
+
+    crearMapa();
 
     document.querySelector('select').addEventListener('change', buscar);
     document.getElementById('desde').addEventListener('change', buscar);

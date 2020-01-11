@@ -31,7 +31,7 @@ exports.update = (req, res) => {
     let change = {puntuacion: req.body.puntuacion}
 
 
-    Puntuacion.updateOne(filter,change).then(puntuaciones => {
+    Puntuacion.updateOne(filter, change).then(puntuaciones => {
         res.status(200).send(puntuaciones);
     }).catch(err => {
         res.status(500).send({
