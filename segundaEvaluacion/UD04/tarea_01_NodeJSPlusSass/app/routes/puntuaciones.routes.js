@@ -11,7 +11,7 @@ module.exports = (app) => {
     app.get('/puntuaciones/:idFalla/:ip', puntuaciones.findOne);
 
     // Update a puntuaciones with puntuacionId
-    //app.put('/puntuaciones/:puntuacionId', puntuaciones.update);
+    app.put('/puntuaciones/:puntuacionId', puntuaciones.update);
 
     // Delete a puntuaciones with puntuacionId
     //app.delete('/puntuaciones/:puntuacionId', puntuaciones.delete);

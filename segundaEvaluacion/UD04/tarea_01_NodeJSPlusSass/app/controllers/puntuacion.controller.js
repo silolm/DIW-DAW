@@ -15,7 +15,7 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
     Puntuacion.findOne({idFalla: req.params.idFalla, ip: req.params.ip}).then(puntuaciones => {
         res.send({
-            id: puntuaciones._id
+            puntuaciones
         });
 
     }).catch(err => {
@@ -26,8 +26,13 @@ exports.findOne = (req, res) => {
 };
 
 exports.update = (req, res) => {
-    Puntuacion.updateOne({idFalla: req.params.idFalla, ip: req.params.ip}).then(puntuaciones => {
-        res.send(puntuaciones);
+
+    let filter = {_id: req.params.puntuacionId}
+    let change = {puntuacion: req.body.puntuacion}
+
+
+    Puntuacion.updateOne(filter,change).then(puntuaciones => {
+        res.status(200).send(puntuaciones);
     }).catch(err => {
         res.status(500).send({
             message: err.message || " Algo fue mal mientras los capturabamos a todos"

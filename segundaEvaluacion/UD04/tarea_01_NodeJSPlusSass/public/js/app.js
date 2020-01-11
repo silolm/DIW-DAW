@@ -104,36 +104,49 @@ function cargarBoceto(falla) {
 }
 
 async function puntuar(idFalla, puntuacion) {
+     console.log(ipCliente.ip);
     let esValido = await get_Id(idFalla, ipCliente.ip);
-    console.log('es valido: ' + esValido.id);
+    //console.log('es valido: ' + esValido.puntuaciones._id);
+    //console.log(esValido);
 
     let datos = {
         idFalla: idFalla,
         ip: ipCliente.ip,
         puntuacion: puntuacion
     };
-
+    //let valido = esValido.puntuaciones._id);
+    console.log(esValido.puntuaciones);
     console.log(datos);
+    if(esValido.puntuaciones === null){
+        fetch('/puntuaciones', {
+            method: 'POST',
+            body: JSON.stringify(datos),
+            headers: {
+                "content-type": "application/json"
+            }
+        }).then(res => (res.json()))
+            .catch(error => {
+                console.log(error);
+            });
+    }else{
+        fetch('/puntuaciones/'+esValido.puntuaciones._id, {
+            method: 'PUT',
+            body: JSON.stringify(datos),
+            headers: {
+                "content-type": "application/json"
+            }
+        }).then(res => (res.json()))
+            .catch(error => {
+                console.log(error);
+            });
+    }
 
-    fetch('/puntuaciones', {
-        method: 'POST',
-        body: JSON.stringify(datos),
-        headers: {
-            "content-type": "application/json"
-        }
-    }).then(res => (res.json()))
-        .catch(error => {
-            console.log(error);
-        });
 }
 
 function get_Id(idFalla, ip) {
     return fetch('/puntuaciones/' + idFalla + '/' + ip).
-    then(async res => {
-        console.log(res.status);
-        if (res.status != 500) {
-            return await res.json();
-        }
+    then(res => {        
+        return res.json();
     }).catch(error => {
         console.log(error);
     });
