@@ -72,20 +72,22 @@ function cargarBoceto(falla) {
 
         <button>Ubicación</button>
 
-        <label for=${falla.infantil ? falla.id + 1 : falla.id + 2}>★</label>
-        <input id=${falla.infantil ? falla.id + 1 : falla.id + 2} name="voto" type="radio" value="1">
+        <form>
+            <label for=${falla.infantil ? falla.id + 1 : falla.id + 2}>★</label>
+            <input id=${falla.infantil ? falla.id + 1 : falla.id + 2} name="voto" type="radio" value="1">
     
-        <label for=${falla.infantil ? falla.id + 3 : falla.id + 4}>★</label>
-        <input id=${falla.infantil ? falla.id + 3 : falla.id + 4} name="voto" type="radio" value="2">
-    
-        <label for=${falla.infantil ? falla.id + 5 : falla.id + 6}>★</label>
-        <input id=${falla.infantil ? falla.id + 5 : falla.id + 6} name="voto" type="radio" value="3">
-    
-        <label for=${falla.infantil ? falla.id + 7 : falla.id + 8}>★</label>
-        <input id=${falla.infantil ? falla.id + 7 : falla.id + 8} name="voto" type="radio" value="4">
-    
-        <label for=${falla.infantil ? falla.id + 9 : falla.id + 10}>★</label>
-        <input id=${falla.infantil ? falla.id + 9 : falla.id + 10} name="voto" type="radio" value="5">
+            <label for=${falla.infantil ? falla.id + 3 : falla.id + 4}>★</label>
+            <input id=${falla.infantil ? falla.id + 3 : falla.id + 4} name="voto" type="radio" value="2">
+        
+            <label for=${falla.infantil ? falla.id + 5 : falla.id + 6}>★</label>
+            <input id=${falla.infantil ? falla.id + 5 : falla.id + 6} name="voto" type="radio" value="3">
+        
+            <label for=${falla.infantil ? falla.id + 7 : falla.id + 8}>★</label>
+            <input id=${falla.infantil ? falla.id + 7 : falla.id + 8} name="voto" type="radio" value="4">
+        
+            <label for=${falla.infantil ? falla.id + 9 : falla.id + 10}>★</label>
+            <input id=${falla.infantil ? falla.id + 9 : falla.id + 10} name="voto" type="radio" value="5">
+         </form>
      `;
 
     let inputs = caja.querySelectorAll('input');
@@ -197,23 +199,13 @@ function crearMapa(coordenada) {
     return mymap;
 }
 
-
-function popUp(coordenadas, falla) {
-    let descripcion = `
-        <div class="descripcion">
-            <h3>${falla.nombre}</h3>
-            <!--<img src="${falla.boceto}">-->
-        </div>
-`;
-}
-
 async function init() {
     await saveData();
     ipCliente = await getIP();
     cargarBocetos();
     secciones();
 
-    crearMapa();
+    //crearMapa();
 
     document.querySelector('select').addEventListener('change', buscar);
     document.getElementById('desde').addEventListener('change', buscar);
