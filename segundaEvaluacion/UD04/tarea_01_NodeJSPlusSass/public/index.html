@@ -5,6 +5,8 @@
     <title>Fallas Valencia</title>
     <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
     <link href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" rel="stylesheet"/>
+    <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+          integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" rel="stylesheet">
     <style>
         @import url("css/styles.css");
     </style>
@@ -13,35 +15,35 @@
 </head>
 <body>
 
-<form>
-    <label for="selector">
-        Sección <br>
-        <select id="selector"></select>
-    </label>
+<form id="filtro">
+    <label for="selector">Sección</label>
+    <select id="selector"></select>
 
-    <br><br>
+    <br>
 
     <label>Año de fundación</label>
 
     <br><br>
 
-    <label>
-        <input id="desde" placeholder="Desde" type="number">
-
-        <br><br>
-
-        <input id="hasta" placeholder="Hasta" type="number">
-    </label>
+    <label for="desde"></label>
+    <input id="desde" placeholder="Desde" type="number">
 
     <br><br>
 
-    <label for="principal">
-        <input id="principal" name="falla" type="radio"> Principal
-    </label>
+    <label for="hasta"></label>
+    <input id="hasta" placeholder="Hasta" type="number">
+
+
+    <br><br>
+
+    <div class="tipoFalla">
+        <label for="principal">Principal</label>
+        <input id="principal" name="falla" type="radio">
     <br>
-    <label for="infantil">
-        <input id="infantil" name="falla" type="radio"> Infantil
-    </label>
+        <label for="infantil">Infantil</label>
+        <input id="infantil" name="falla" type="radio">
+    </div>
+
 
 </form>
 <div id="resultados"></div>

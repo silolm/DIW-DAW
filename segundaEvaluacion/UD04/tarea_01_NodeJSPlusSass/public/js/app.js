@@ -72,21 +72,21 @@ function cargarBoceto(falla) {
 
         <button>Ubicación</button>
 
-        <form>
-            <label for=${falla.infantil ? falla.id + 1 : falla.id + 2}>★</label>
-            <input id=${falla.infantil ? falla.id + 1 : falla.id + 2} name="voto" type="radio" value="1">
+         <form>
+            <label for=${falla.infantil ? falla.id + 1 : falla.id + 2}><i class="fas fa-star"></i></label>
+            <input id=${falla.infantil ? falla.id + 1 : falla.id + 2} name="voto" type="radio" value="5">
     
-            <label for=${falla.infantil ? falla.id + 3 : falla.id + 4}>★</label>
-            <input id=${falla.infantil ? falla.id + 3 : falla.id + 4} name="voto" type="radio" value="2">
+            <label for=${falla.infantil ? falla.id + 3 : falla.id + 4}><i class="fas fa-star"></i></label>
+            <input id=${falla.infantil ? falla.id + 3 : falla.id + 4} name="voto" type="radio" value="4">
         
-            <label for=${falla.infantil ? falla.id + 5 : falla.id + 6}>★</label>
+            <label for=${falla.infantil ? falla.id + 5 : falla.id + 6}><i class="fas fa-star"></i></label>
             <input id=${falla.infantil ? falla.id + 5 : falla.id + 6} name="voto" type="radio" value="3">
         
-            <label for=${falla.infantil ? falla.id + 7 : falla.id + 8}>★</label>
-            <input id=${falla.infantil ? falla.id + 7 : falla.id + 8} name="voto" type="radio" value="4">
+            <label for=${falla.infantil ? falla.id + 7 : falla.id + 8}><i class="fas fa-star"></i></label>
+            <input id=${falla.infantil ? falla.id + 7 : falla.id + 8} name="voto" type="radio" value="2">
         
-            <label for=${falla.infantil ? falla.id + 9 : falla.id + 10}>★</label>
-            <input id=${falla.infantil ? falla.id + 9 : falla.id + 10} name="voto" type="radio" value="5">
+            <label for=${falla.infantil ? falla.id + 9 : falla.id + 10}><i class="fas fa-star"></i></label>
+            <input id=${falla.infantil ? falla.id + 9 : falla.id + 10} name="voto" type="radio" value="1">
          </form>
      `;
 

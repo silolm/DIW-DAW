@@ -1,39 +1,97 @@
+$color-inactivo: #5f5050;
+$color-hover: #ffa400;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  background-image: url("public/img/fuego.jpg");
+  background-size: 100vw 100vh;
+  background-attachment: fixed;
+  margin: 0;
+  font-family: monospace;
+}
+
+#filtro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .tipoFalla{
+    display: flex;
+  }
+
+  label {
+    margin: 5px 10px 5px 0;
+  }
+
+  input {
+    vertical-align: middle;
+    margin: 5px 10px 5px 0;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+  }
+
+  @media screen and (max-width: 800px) {
+    #filtro input {
+      margin: 10px 0;
+    }
+    #filtro {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+  }
+}
+
 #resultados {
   .contenedorFalla {
+    h3 {
+      user-select: text;
+    }
 
     form {
+      display: flex;
+      flex-direction: row-reverse;
+
       width: 250px;
       height: 50px;
       margin: 0 auto;
 
       label {
-        font-size: 20px;
-        color: grey;
+        background-color: initial;
+        border: 0;
+        color: $color-inactivo;
+        transition: 0.5s all;
+
+        &:hover {
+          cursor: pointer;
+          color: $color-hover;
+          transform: translateX(5px) translateY(5px);
+        }
+
+        @for $i from 1 through 5 {
+          &:nth-child(#{$i}):hover ~ button {
+            color: $color-hover;
+            transform: translateX(10px) translateY(5px);
+          }
+        }
       }
 
       input[type="radio"] {
         display: none;
       }
 
-      label:hover,
-      label:hover ~ label {
-        color: orange;
-      }
-
       input[type="radio"]:checked ~ label {
         color: orange;
       }
     }
-
-    h3 {
-      user-select: text;
-    }
   }
 }
 
-body {
-  -webkit-user-select: none;
-  -moz-user-select: -moz-none;
-  -ms-user-select: none;
-  user-select: none;
-}

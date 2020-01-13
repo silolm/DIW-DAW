@@ -1,34 +1,71 @@
-#resultados .contenedorFalla form {
-    width: 250px;
-    height: 50px;
-    margin: 0 auto;
-}
-
-#resultados .contenedorFalla form label {
-    font-size: 20px;
-    color: grey;
-}
-
-#resultados .contenedorFalla form input[type="radio"] {
-    display: none;
-}
-
-#resultados .contenedorFalla form label:hover,
-#resultados .contenedorFalla form label:hover ~ label {
-    color: orange;
-}
-
-#resultados .contenedorFalla form input[type="radio"]:checked ~ label {
-    color: orange;
-}
-
-#resultados .contenedorFalla h3 {
-    user-select: text;
-}
+* {
+  box-sizing: border-box; }
 
 body {
-    -webkit-user-select: none;
-    -moz-user-select: -moz-none;
-    -ms-user-select: none;
-    user-select: none;
-}
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: url("../img/fuego.jpg");
+  background-size: 100vw 100vh;
+  background-attachment: fixed;
+  margin: 0;
+  font-family: monospace; }
+
+#filtro {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  #filtro .tipoFalla {
+    display: flex; }
+  #filtro label {
+    margin: 5px 10px 5px 0; }
+  #filtro input {
+    vertical-align: middle;
+    margin: 5px 10px 5px 0;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd; }
+  @media screen and (max-width: 800px) {
+    #filtro #filtro input {
+      margin: 10px 0; }
+    #filtro #filtro {
+      flex-direction: column;
+      align-items: stretch; } }
+
+#resultados .contenedorFalla h3 {
+  user-select: text; }
+
+#resultados .contenedorFalla form {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 250px;
+  height: 50px;
+  margin: 0 auto; }
+  #resultados .contenedorFalla form label {
+    background-color: initial;
+    border: 0;
+    color: #5f5050;
+    transition: 0.5s all; }
+    #resultados .contenedorFalla form label:hover {
+      cursor: pointer;
+      color: #ffa400;
+      transform: translateX(5px) translateY(5px); }
+    #resultados .contenedorFalla form label:nth-child(1):hover ~ button {
+      color: #ffa400;
+      transform: translateX(10px) translateY(5px); }
+    #resultados .contenedorFalla form label:nth-child(2):hover ~ button {
+      color: #ffa400;
+      transform: translateX(10px) translateY(5px); }
+    #resultados .contenedorFalla form label:nth-child(3):hover ~ button {
+      color: #ffa400;
+      transform: translateX(10px) translateY(5px); }
+    #resultados .contenedorFalla form label:nth-child(4):hover ~ button {
+      color: #ffa400;
+      transform: translateX(10px) translateY(5px); }
+    #resultados .contenedorFalla form label:nth-child(5):hover ~ button {
+      color: #ffa400;
+      transform: translateX(10px) translateY(5px); }
+  #resultados .contenedorFalla form input[type="radio"] {
+    display: none; }
+  #resultados .contenedorFalla form input[type="radio"]:checked ~ label {
+    color: orange; }
