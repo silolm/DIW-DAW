@@ -1,8 +1,17 @@
 $color-inactivo: #5f5050;
 $color-hover: #ffa400;
+$color-starbucks: #036635;
+
+@font-face {
+  font-family: 'Starbucks';
+  src: url(../fonts/Starbucks.otf);
+}
 
 * {
   box-sizing: border-box;
+  color: #3e8e41;
+  font-family: "Starbucks";
+
 }
 
 body {
@@ -10,20 +19,127 @@ body {
   -ms-user-select: none;
   user-select: none;
 
-  background-image: url("public/img/fuego.jpg");
+  background-color: $color-starbucks;
   background-size: 100vw 100vh;
   background-attachment: fixed;
   margin: 0;
   font-family: monospace;
 }
 
+#selector {
+  position: relative;
+  width: 120px;
+  overflow: hidden;
+  padding: 5px 8px;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none;
+  appearance: none;
+
+
+  &:before {
+    content: '';
+    position: absolute;
+    right: 5px;
+    top: 7px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 7px 5px 0 5px;
+    border-color: #000000 transparent transparent transparent;
+    z-index: 5;
+    pointer-events: none;
+  }
+}
+
+#fieldSetMaster{
+  width: 100%;
+}
+
 #filtro {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 450px;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border-radius: 7px;
 
-  .tipoFalla{
+  legend {
+    text-align: center;
+    font-size: 30px;
+    margin: 0 0 20px;
+  }
+
+  .tipoFalla {
     display: flex;
+
+    input[type='radio'] {
+      display: none;
+
+      &:checked + label {
+        padding: 5px 15px;
+        background-color: #3e8e41;
+        border-radius: 2px;
+        color: #fff;
+      }
+
+      &:checked + label:before {
+        display: none;
+      }
+    }
+
+    label {
+      padding: 5px 15px 5px 51px;
+      display: inline-block;
+      position: relative;
+      font-size: 1em;
+      border-radius: 3px;
+      cursor: pointer;
+      -webkit-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+
+
+      &:hover {
+        background-color: rgba(0, 116, 217, 0.2);
+      }
+
+      &:before {
+        content: "";
+        width: 17px;
+        height: 17px;
+        display: inline-block;
+        background: none;
+        border: 3px solid $color-starbucks;
+        border-radius: 50%;
+        position: absolute;
+        left: 17px;
+        top: 2px;
+      }
+    }
+
+
+  }
+
+  .anyoFundacion {
+    input {
+      vertical-align: middle;
+      border: none;
+      padding: 0 10px;
+      margin: 0;
+      width: 240px;
+      background: none;
+
+      &:focus {
+        background: rgba(0, 0, 0, .1);
+        border-radius: 5px;
+        outline: none;
+      }
+    }
   }
 
   label {

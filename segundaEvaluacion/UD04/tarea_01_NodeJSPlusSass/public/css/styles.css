@@ -1,22 +1,95 @@
+@font-face {
+  font-family: 'Starbucks';
+  src: url(../fonts/Starbucks.otf); }
+
 * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  color: #3e8e41;
+  font-family: "Starbucks"; }
 
 body {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-image: url("../img/fuego.jpg");
+  background-color: #036635;
   background-size: 100vw 100vh;
   background-attachment: fixed;
   margin: 0;
   font-family: monospace; }
 
+#selector {
+  position: relative;
+  width: 120px;
+  overflow: hidden;
+  padding: 5px 8px;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none;
+  appearance: none; }
+
+#fieldSetMaster {
+  width: 100%; }
+
 #filtro {
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  width: 450px;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border-radius: 7px; }
+  #filtro legend {
+    text-align: center;
+    font-size: 30px;
+    margin: 0 0 20px; }
   #filtro .tipoFalla {
     display: flex; }
+    #filtro .tipoFalla input[type='radio'] {
+      display: none; }
+      #filtro .tipoFalla input[type='radio']:checked + label {
+        padding: 5px 15px;
+        background-color: #3e8e41;
+        border-radius: 2px;
+        color: #fff; }
+      #filtro .tipoFalla input[type='radio']:checked + label:before {
+        display: none; }
+    #filtro .tipoFalla label {
+      padding: 5px 15px 5px 51px;
+      display: inline-block;
+      position: relative;
+      font-size: 1em;
+      border-radius: 3px;
+      cursor: pointer;
+      -webkit-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease; }
+      #filtro .tipoFalla label:hover {
+        background-color: rgba(0, 116, 217, 0.2); }
+      #filtro .tipoFalla label:before {
+        content: "";
+        width: 17px;
+        height: 17px;
+        display: inline-block;
+        background: none;
+        border: 3px solid #036635;
+        border-radius: 50%;
+        position: absolute;
+        left: 17px;
+        top: 2px; }
+  #filtro .anyoFundacion input {
+    vertical-align: middle;
+    border: none;
+    padding: 0 10px;
+    margin: 0;
+    width: 240px;
+    background: none; }
+    #filtro .anyoFundacion input:focus {
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      outline: none; }
   #filtro label {
     margin: 5px 10px 5px 0; }
   #filtro input {
