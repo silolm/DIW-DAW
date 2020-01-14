@@ -17,19 +17,27 @@ body {
   margin: 0;
   font-family: monospace; }
 
-#selector {
-  position: relative;
-  width: 120px;
-  overflow: hidden;
-  padding: 5px 8px;
-  border: none;
-  box-shadow: none;
-  background-color: transparent;
-  background-image: none;
-  appearance: none; }
+.seccion {
+  display: flex;
+  justify-content: space-between; }
+  .seccion #selector {
+    position: relative;
+    width: 120px;
+    overflow: hidden;
+    padding: 5px 8px;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    appearance: none; }
+
+.fieldAnyoFundacion {
+  border-radius: 0 30px 0 30px;
+  border: 5px ridge #036635; }
 
 #fieldSetMaster {
-  width: 100%; }
+  width: 100%;
+  border: 5px ridge #036635; }
 
 #filtro {
   display: flex;
@@ -46,7 +54,8 @@ body {
     font-size: 30px;
     margin: 0 0 20px; }
   #filtro .tipoFalla {
-    display: flex; }
+    display: flex;
+    justify-content: space-between; }
     #filtro .tipoFalla input[type='radio'] {
       display: none; }
       #filtro .tipoFalla input[type='radio']:checked + label {
@@ -84,7 +93,7 @@ body {
     border: none;
     padding: 0 10px;
     margin: 0;
-    width: 240px;
+    width: 100%;
     background: none; }
     #filtro .anyoFundacion input:focus {
       background: rgba(0, 0, 0, 0.1);
@@ -105,40 +114,45 @@ body {
       flex-direction: column;
       align-items: stretch; } }
 
-#resultados .contenedorFalla h3 {
-  user-select: text; }
-
-#resultados .contenedorFalla form {
-  display: flex;
-  flex-direction: row-reverse;
-  width: 250px;
-  height: 50px;
-  margin: 0 auto; }
-  #resultados .contenedorFalla form label {
-    background-color: initial;
-    border: 0;
-    color: #5f5050;
-    transition: 0.5s all; }
-    #resultados .contenedorFalla form label:hover {
-      cursor: pointer;
-      color: #ffa400;
-      transform: translateX(5px) translateY(5px); }
-    #resultados .contenedorFalla form label:nth-child(1):hover ~ button {
-      color: #ffa400;
-      transform: translateX(10px) translateY(5px); }
-    #resultados .contenedorFalla form label:nth-child(2):hover ~ button {
-      color: #ffa400;
-      transform: translateX(10px) translateY(5px); }
-    #resultados .contenedorFalla form label:nth-child(3):hover ~ button {
-      color: #ffa400;
-      transform: translateX(10px) translateY(5px); }
-    #resultados .contenedorFalla form label:nth-child(4):hover ~ button {
-      color: #ffa400;
-      transform: translateX(10px) translateY(5px); }
-    #resultados .contenedorFalla form label:nth-child(5):hover ~ button {
-      color: #ffa400;
-      transform: translateX(10px) translateY(5px); }
-  #resultados .contenedorFalla form input[type="radio"] {
-    display: none; }
-  #resultados .contenedorFalla form input[type="radio"]:checked ~ label {
-    color: orange; }
+#resultados {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); }
+  #resultados .contenedorFalla {
+    display: flex;
+    justify-content: space-between; }
+    #resultados .contenedorFalla h3 {
+      user-select: text; }
+    #resultados .contenedorFalla form {
+      display: flex;
+      flex-direction: row-reverse;
+      width: 250px;
+      height: 50px;
+      margin: 0 auto; }
+      #resultados .contenedorFalla form label {
+        background-color: initial;
+        border: 0;
+        color: #5f5050;
+        transition: 0.5s all; }
+        #resultados .contenedorFalla form label:hover {
+          cursor: pointer;
+          color: #ffa400;
+          transform: translateX(5px) translateY(5px); }
+        #resultados .contenedorFalla form label:nth-child(1):hover ~ button {
+          color: #ffa400;
+          transform: translateX(10px) translateY(5px); }
+        #resultados .contenedorFalla form label:nth-child(2):hover ~ button {
+          color: #ffa400;
+          transform: translateX(10px) translateY(5px); }
+        #resultados .contenedorFalla form label:nth-child(3):hover ~ button {
+          color: #ffa400;
+          transform: translateX(10px) translateY(5px); }
+        #resultados .contenedorFalla form label:nth-child(4):hover ~ button {
+          color: #ffa400;
+          transform: translateX(10px) translateY(5px); }
+        #resultados .contenedorFalla form label:nth-child(5):hover ~ button {
+          color: #ffa400;
+          transform: translateX(10px) translateY(5px); }
+      #resultados .contenedorFalla form input[type="radio"] {
+        display: none; }
+      #resultados .contenedorFalla form input[type="radio"]:checked ~ label {
+        color: orange; }

@@ -26,35 +26,31 @@ body {
   font-family: monospace;
 }
 
-#selector {
-  position: relative;
-  width: 120px;
-  overflow: hidden;
-  padding: 5px 8px;
-  border: none;
-  box-shadow: none;
-  background-color: transparent;
-  background-image: none;
-  appearance: none;
+.seccion {
+  display: flex;
+  justify-content: space-between;
 
-
-  &:before {
-    content: '';
-    position: absolute;
-    right: 5px;
-    top: 7px;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 7px 5px 0 5px;
-    border-color: #000000 transparent transparent transparent;
-    z-index: 5;
-    pointer-events: none;
+  #selector {
+    position: relative;
+    width: 120px;
+    overflow: hidden;
+    padding: 5px 8px;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    appearance: none;
   }
 }
 
-#fieldSetMaster{
+.fieldAnyoFundacion {
+  border-radius: 0 30px 0 30px;
+  border: 5px ridge $color-starbucks;
+}
+
+#fieldSetMaster {
   width: 100%;
+  border: 5px ridge $color-starbucks;
 }
 
 #filtro {
@@ -74,8 +70,10 @@ body {
     margin: 0 0 20px;
   }
 
+
   .tipoFalla {
     display: flex;
+    justify-content: space-between;
 
     input[type='radio'] {
       display: none;
@@ -131,7 +129,7 @@ body {
       border: none;
       padding: 0 10px;
       margin: 0;
-      width: 240px;
+      width: 100%;
       background: none;
 
       &:focus {
@@ -166,8 +164,15 @@ body {
   }
 }
 
+
 #resultados {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
   .contenedorFalla {
+    display: flex;
+    
+
     h3 {
       user-select: text;
     }
