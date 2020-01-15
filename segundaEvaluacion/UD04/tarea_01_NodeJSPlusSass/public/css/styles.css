@@ -17,7 +17,7 @@ body {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-color: #036635;
+  background-image: url("../img/vector.jpg");
   background-size: 100vw 100vh;
   background-attachment: fixed;
   margin: 0;
@@ -35,7 +35,8 @@ body {
     box-shadow: none;
     background-color: transparent;
     background-image: none;
-    appearance: none; }
+    appearance: none;
+    color: whitesmoke; }
 
 .fieldAnyoFundacion {
   border-radius: 0 30px 0 30px;
@@ -51,11 +52,11 @@ body {
   align-items: center;
   width: 450px;
   margin: auto;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.5);
   padding: 10px 20px;
   box-sizing: border-box;
   border-radius: 7px;
-  color: brown; }
+  color: whitesmoke; }
   #filtro legend {
     text-align: center;
     font-size: 30px;
@@ -101,9 +102,10 @@ body {
     padding: 0 10px;
     margin: 0;
     width: 100%;
-    background: none; }
+    background: none;
+    color: whitesmoke; }
     #filtro .anyoFundacion input:focus {
-      background: rgba(0, 0, 0, 0.1);
+      background: #036635;
       border-radius: 5px;
       outline: none; }
   #filtro label {
@@ -130,6 +132,8 @@ body {
     margin: 10px;
     padding: 10px;
     background-image: url("../img/wengué.jpg");
+    background-size: 100vw 100vh;
+    background-attachment: fixed;
     flex-direction: column;
     border-radius: 15px;
     text-align: center; }
@@ -146,17 +150,17 @@ body {
       text-align: center;
       border: none;
       cursor: pointer;
-      background-color: gold;
+      background-color: orange;
       transition-property: background-color;
       transition-duration: 1s;
       color: #333333; }
       #resultados .contenedorFalla button:hover {
-        background-color: goldenrod; }
+        background-color: orangered; }
       #resultados .contenedorFalla button:active {
         transform: translateY(1.5px); }
     #resultados .contenedorFalla h3 {
       user-select: text;
-      color: #E1C699; }
+      color: #9D2D22; }
     #resultados .contenedorFalla form {
       display: flex;
       flex-direction: row-reverse;
@@ -167,7 +171,7 @@ body {
         background-color: initial;
         border: 0;
         font-size: 30px;
-        color: #5f5050;
+        color: rgba(0, 0, 0, 0.4);
         text-align: center;
         transition: 0.5s all;
         cursor: pointer; }

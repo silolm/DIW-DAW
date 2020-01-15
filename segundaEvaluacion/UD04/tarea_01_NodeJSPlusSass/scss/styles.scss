@@ -1,4 +1,4 @@
-$color-inactivo: #5f5050;
+$color-inactivo: rgba(0, 0, 0, 0.4);
 $color-hover: #ffa400;
 $color-starbucks: #036635;
 
@@ -24,7 +24,8 @@ body {
   -ms-user-select: none;
   user-select: none;
 
-  background-color: $color-starbucks;
+  //background-color: $color-starbucks;
+  background-image: url("../img/vector.jpg");
   background-size: 100vw 100vh;
   background-attachment: fixed;
   margin: 0;
@@ -45,6 +46,7 @@ body {
     background-color: transparent;
     background-image: none;
     appearance: none;
+    color: whitesmoke;
   }
 }
 
@@ -64,11 +66,11 @@ body {
   align-items: center;
   width: 450px;
   margin: auto;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.5);
   padding: 10px 20px;
   box-sizing: border-box;
   border-radius: 7px;
-  color: brown;
+  color: whitesmoke;
 
   legend {
     text-align: center;
@@ -137,9 +139,10 @@ body {
       margin: 0;
       width: 100%;
       background: none;
+      color: whitesmoke;
 
       &:focus {
-        background: rgba(0, 0, 0, .1);
+        background: $color-starbucks;
         border-radius: 5px;
         outline: none;
       }
@@ -184,6 +187,9 @@ body {
     padding: 10px;
     //background-color: #45322E;
     background-image: url("../img/wengué.jpg");
+    background-size: 100vw 100vh;
+    background-attachment: fixed;
+    //margin: 0;
     flex-direction: column;
     border-radius: 15px;
     text-align: center;
@@ -205,13 +211,13 @@ body {
       text-align: center;
       border: none;
       cursor: pointer;
-      background-color: gold;
+      background-color: orange;
       transition-property: background-color;
       transition-duration: 1s;
       color: #333333;
 
       &:hover {
-        background-color: goldenrod;
+        background-color: orangered;
       }
 
       &:active {
@@ -222,7 +228,7 @@ body {
 
     h3 {
       user-select: text;
-      color: #E1C699;
+      color: #9D2D22;
     }
 
     form {
