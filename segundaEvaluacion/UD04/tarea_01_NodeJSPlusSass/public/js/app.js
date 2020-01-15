@@ -145,6 +145,8 @@ async function puntuar(idFalla, puntuacion) {
 }
 
 function get_Id(idFalla, ip) {
+    // petición AJAX que asocia el IdFalla y la IP al Id de la PUNTUACIÓN
+    // para no tener que crear cada vez uno y asi actualizar cada puntuación.
     return fetch('/puntuaciones/' + idFalla + '/' + ip).then(res => {
         return res.json();
     }).catch(error => {
@@ -158,6 +160,8 @@ function saveData() {
         return response.json();
         // Y entonces
     }).then(busqueda => {
+        // me guardo la información proporcionado por la URL y la almaceno en un JSON
+        // que he creado para acceder a ella por el nombre que deseo...
         busquedaDeFallas = busqueda.features.reduce((buffer, element) => buffer.concat([
             {
                 id: element.properties.id,
@@ -183,10 +187,12 @@ function saveData() {
 }
 
 function getIP() {
+    // obtener IP en formato JSON
     return fetch('https://api6.ipify.org?format=json').then(ip => ip.json());
 }
 
 function crearMapa(coordenada) {
+    // funcion para crear mapa funciona perfecto solo falta pasarle los parametros de las fallas...
     let mymap = L.map('mapid').setView([coordenada[0], coordenada[1]], 18);
 
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2lsb2xtIiwiYSI6ImNrNTl3Mno0bDExYTUzdXBhbWt6MjhxbmsifQ.CbExNLNeHPKK-4mZOGDhEw', {
