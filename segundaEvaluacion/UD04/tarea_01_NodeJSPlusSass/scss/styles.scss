@@ -2,6 +2,13 @@ $color-inactivo: #5f5050;
 $color-hover: #ffa400;
 $color-starbucks: #036635;
 
+%centrado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 @font-face {
   font-family: 'Starbucks';
   src: url(../fonts/Starbucks.otf);
@@ -9,9 +16,7 @@ $color-starbucks: #036635;
 
 * {
   box-sizing: border-box;
-  color: #3e8e41;
   font-family: "Starbucks";
-
 }
 
 body {
@@ -63,6 +68,7 @@ body {
   padding: 10px 20px;
   box-sizing: border-box;
   border-radius: 7px;
+  color: brown;
 
   legend {
     text-align: center;
@@ -166,15 +172,57 @@ body {
 
 
 #resultados {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  @extend %centrado;
+  width: 100%;
+  margin-top: 50px;
 
   .contenedorFalla {
-    display: flex;
-    
+    @extend %centrado;
+    width: 350px;
+    height: 600px;
+    margin: 10px;
+    padding: 10px;
+    //background-color: #45322E;
+    background-image: url("../img/wengué.jpg");
+    flex-direction: column;
+    border-radius: 15px;
+    text-align: center;
+
+    * {
+      margin: 5px;
+    }
+
+    img {
+      width: 300px;
+      height: 350px;
+      border-radius: 5px;
+    }
+
+    button {
+      outline: none;
+      border-radius: 5px;
+      padding: 5px 20px 5px 20px;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      background-color: gold;
+      transition-property: background-color;
+      transition-duration: 1s;
+      color: #333333;
+
+      &:hover {
+        background-color: goldenrod;
+      }
+
+      &:active {
+        transform: translateY(1.5px);
+      }
+
+    }
 
     h3 {
       user-select: text;
+      color: #E1C699;
     }
 
     form {
@@ -188,8 +236,11 @@ body {
       label {
         background-color: initial;
         border: 0;
+        font-size: 30px;
         color: $color-inactivo;
+        text-align: center;
         transition: 0.5s all;
+        cursor: pointer;
 
         &:hover {
           cursor: pointer;

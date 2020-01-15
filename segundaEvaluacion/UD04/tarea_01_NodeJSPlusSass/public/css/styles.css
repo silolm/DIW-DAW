@@ -1,10 +1,16 @@
+@charset "UTF-8";
+#resultados, #resultados .contenedorFalla {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; }
+
 @font-face {
   font-family: 'Starbucks';
   src: url(../fonts/Starbucks.otf); }
 
 * {
   box-sizing: border-box;
-  color: #3e8e41;
   font-family: "Starbucks"; }
 
 body {
@@ -48,7 +54,8 @@ body {
   background: rgba(0, 0, 0, 0.4);
   padding: 10px 20px;
   box-sizing: border-box;
-  border-radius: 7px; }
+  border-radius: 7px;
+  color: brown; }
   #filtro legend {
     text-align: center;
     font-size: 30px;
@@ -115,13 +122,41 @@ body {
       align-items: stretch; } }
 
 #resultados {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); }
+  width: 100%;
+  margin-top: 50px; }
   #resultados .contenedorFalla {
-    display: flex;
-    justify-content: space-between; }
+    width: 350px;
+    height: 600px;
+    margin: 10px;
+    padding: 10px;
+    background-image: url("../img/wengué.jpg");
+    flex-direction: column;
+    border-radius: 15px;
+    text-align: center; }
+    #resultados .contenedorFalla * {
+      margin: 5px; }
+    #resultados .contenedorFalla img {
+      width: 300px;
+      height: 350px;
+      border-radius: 5px; }
+    #resultados .contenedorFalla button {
+      outline: none;
+      border-radius: 5px;
+      padding: 5px 20px 5px 20px;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      background-color: gold;
+      transition-property: background-color;
+      transition-duration: 1s;
+      color: #333333; }
+      #resultados .contenedorFalla button:hover {
+        background-color: goldenrod; }
+      #resultados .contenedorFalla button:active {
+        transform: translateY(1.5px); }
     #resultados .contenedorFalla h3 {
-      user-select: text; }
+      user-select: text;
+      color: #E1C699; }
     #resultados .contenedorFalla form {
       display: flex;
       flex-direction: row-reverse;
@@ -131,8 +166,11 @@ body {
       #resultados .contenedorFalla form label {
         background-color: initial;
         border: 0;
+        font-size: 30px;
         color: #5f5050;
-        transition: 0.5s all; }
+        text-align: center;
+        transition: 0.5s all;
+        cursor: pointer; }
         #resultados .contenedorFalla form label:hover {
           cursor: pointer;
           color: #ffa400;
