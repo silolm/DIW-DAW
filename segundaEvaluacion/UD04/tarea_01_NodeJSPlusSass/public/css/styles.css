@@ -271,4 +271,8 @@ body {
 
 #resultados .contenedorFalla form input[type="radio"]:checked ~ label {
     color: orange;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 1cf3fd3abe9740cd3e02f6fc3cd28bf3c7361a85
