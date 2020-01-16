@@ -1,32 +1,38 @@
 @charset "UTF-8";
 #resultados, #resultados .contenedorFalla {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap; }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
 
 @font-face {
-  font-family: 'Starbucks';
-  src: url(../fonts/Starbucks.otf); }
+    font-family: 'Starbucks';
+    src: url(../fonts/Starbucks.otf);
+}
 
 * {
-  box-sizing: border-box;
-  font-family: "Starbucks"; }
+    box-sizing: border-box;
+    font-family: "Starbucks";
+}
 
 body {
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  background-image: url("../img/vector.jpg");
-  background-size: 100vw 100vh;
-  background-attachment: fixed;
-  margin: 0;
-  font-family: monospace; }
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: url("../img/vector.jpg");
+    background-size: 100vw 100vh;
+    background-attachment: fixed;
+    margin: 0;
+    font-family: monospace;
+}
 
 .seccion {
-  display: flex;
-  justify-content: space-between; }
-  .seccion #selector {
+    display: flex;
+    justify-content: space-between;
+}
+
+.seccion #selector {
     position: relative;
     width: 120px;
     overflow: hidden;
@@ -36,97 +42,132 @@ body {
     background-color: transparent;
     background-image: none;
     appearance: none;
-    color: whitesmoke; }
+    color: whitesmoke;
+}
 
 .fieldAnyoFundacion {
-  border-radius: 0 30px 0 30px;
-  border: 5px ridge #036635; }
+    border-radius: 0 30px 0 30px;
+    border: 5px ridge #036635;
+}
 
 #fieldSetMaster {
-  width: 100%;
-  border: 5px ridge #036635; }
+    width: 100%;
+    border: 5px ridge #036635;
+}
 
 #filtro {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 450px;
-  margin: auto;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 10px 20px;
-  box-sizing: border-box;
-  border-radius: 7px;
-  color: whitesmoke; }
-  #filtro legend {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 450px;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border-radius: 7px;
+    color: whitesmoke;
+}
+
+#filtro legend {
     text-align: center;
     font-size: 30px;
-    margin: 0 0 20px; }
-  #filtro .tipoFalla {
+    margin: 0 0 20px;
+}
+
+#filtro .tipoFalla {
     display: flex;
-    justify-content: space-between; }
-    #filtro .tipoFalla input[type='radio'] {
-      display: none; }
-      #filtro .tipoFalla input[type='radio']:checked + label {
-        padding: 5px 15px;
-        background-color: #3e8e41;
-        border-radius: 2px;
-        color: #fff; }
-      #filtro .tipoFalla input[type='radio']:checked + label:before {
-        display: none; }
-    #filtro .tipoFalla label {
-      padding: 5px 15px 5px 51px;
-      display: inline-block;
-      position: relative;
-      font-size: 1em;
-      border-radius: 3px;
-      cursor: pointer;
-      -webkit-transition: all 0.3s ease;
-      -o-transition: all 0.3s ease;
-      transition: all 0.3s ease; }
-      #filtro .tipoFalla label:hover {
-        background-color: rgba(0, 116, 217, 0.2); }
-      #filtro .tipoFalla label:before {
-        content: "";
-        width: 17px;
-        height: 17px;
-        display: inline-block;
-        background: none;
-        border: 3px solid #036635;
-        border-radius: 50%;
-        position: absolute;
-        left: 17px;
-        top: 2px; }
-  #filtro .anyoFundacion input {
+    justify-content: space-between;
+}
+
+#filtro .tipoFalla input[type='radio'] {
+    display: none;
+}
+
+#filtro .tipoFalla input[type='radio']:checked + label {
+    padding: 5px 15px;
+    background-color: #3e8e41;
+    border-radius: 2px;
+    color: #fff;
+}
+
+#filtro .tipoFalla input[type='radio']:checked + label:before {
+    display: none;
+}
+
+#filtro .tipoFalla label {
+    padding: 5px 15px 5px 51px;
+    display: inline-block;
+    position: relative;
+    font-size: 1em;
+    border-radius: 3px;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+#filtro .tipoFalla label:hover {
+    background-color: rgba(0, 116, 217, 0.2);
+}
+
+#filtro .tipoFalla label:before {
+    content: "";
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    background: none;
+    border: 3px solid #036635;
+    border-radius: 50%;
+    position: absolute;
+    left: 17px;
+    top: 2px;
+}
+
+#filtro .anyoFundacion input {
     vertical-align: middle;
     border: none;
     padding: 0 10px;
     margin: 0;
     width: 100%;
     background: none;
-    color: whitesmoke; }
-    #filtro .anyoFundacion input:focus {
-      background: #036635;
-      border-radius: 5px;
-      outline: none; }
-  #filtro label {
-    margin: 5px 10px 5px 0; }
-  #filtro input {
+    color: whitesmoke;
+}
+
+#filtro .anyoFundacion input:focus {
+    background: #036635;
+    border-radius: 5px;
+    outline: none;
+}
+
+#filtro label {
+    margin: 5px 10px 5px 0;
+}
+
+#filtro input {
     vertical-align: middle;
     margin: 5px 10px 5px 0;
     padding: 10px;
     background-color: #fff;
-    border: 1px solid #ddd; }
-  @media screen and (max-width: 800px) {
+    border: 1px solid #ddd;
+}
+
+@media screen and (max-width: 800px) {
     #filtro #filtro input {
-      margin: 10px 0; }
+        margin: 10px 0;
+    }
+
     #filtro #filtro {
-      flex-direction: column;
-      align-items: stretch; } }
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
 
 #resultados {
-  width: 100%;
-  margin-top: 50px; }
-  #resultados .contenedorFalla {
+    width: 100%;
+    margin-top: 50px;
+}
+
+#resultados .contenedorFalla {
     width: 350px;
     height: 600px;
     margin: 10px;
@@ -136,65 +177,98 @@ body {
     background-attachment: fixed;
     flex-direction: column;
     border-radius: 15px;
-    text-align: center; }
-    #resultados .contenedorFalla * {
-      margin: 5px; }
-    #resultados .contenedorFalla img {
-      width: 300px;
-      height: 350px;
-      border-radius: 5px; }
-    #resultados .contenedorFalla button {
-      outline: none;
-      border-radius: 5px;
-      padding: 5px 20px 5px 20px;
-      text-align: center;
-      border: none;
-      cursor: pointer;
-      background-color: orange;
-      transition-property: background-color;
-      transition-duration: 1s;
-      color: #333333; }
-      #resultados .contenedorFalla button:hover {
-        background-color: orangered; }
-      #resultados .contenedorFalla button:active {
-        transform: translateY(1.5px); }
-    #resultados .contenedorFalla h3 {
-      user-select: text;
-      color: #9D2D22; }
-    #resultados .contenedorFalla form {
-      display: flex;
-      flex-direction: row-reverse;
-      width: 250px;
-      height: 50px;
-      margin: 0 auto; }
-      #resultados .contenedorFalla form label {
-        background-color: initial;
-        border: 0;
-        font-size: 30px;
-        color: rgba(0, 0, 0, 0.4);
-        text-align: center;
-        transition: 0.5s all;
-        cursor: pointer; }
-        #resultados .contenedorFalla form label:hover {
-          cursor: pointer;
-          color: #ffa400;
-          transform: translateX(5px) translateY(5px); }
-        #resultados .contenedorFalla form label:nth-child(1):hover ~ button {
-          color: #ffa400;
-          transform: translateX(10px) translateY(5px); }
-        #resultados .contenedorFalla form label:nth-child(2):hover ~ button {
-          color: #ffa400;
-          transform: translateX(10px) translateY(5px); }
-        #resultados .contenedorFalla form label:nth-child(3):hover ~ button {
-          color: #ffa400;
-          transform: translateX(10px) translateY(5px); }
-        #resultados .contenedorFalla form label:nth-child(4):hover ~ button {
-          color: #ffa400;
-          transform: translateX(10px) translateY(5px); }
-        #resultados .contenedorFalla form label:nth-child(5):hover ~ button {
-          color: #ffa400;
-          transform: translateX(10px) translateY(5px); }
-      #resultados .contenedorFalla form input[type="radio"] {
-        display: none; }
-      #resultados .contenedorFalla form input[type="radio"]:checked ~ label {
-        color: orange; }
+    text-align: center;
+}
+
+#resultados .contenedorFalla * {
+    margin: 5px;
+}
+
+#resultados .contenedorFalla img {
+    width: 300px;
+    height: 350px;
+    border-radius: 5px;
+}
+
+#resultados .contenedorFalla button {
+    outline: none;
+    border-radius: 5px;
+    padding: 5px 20px 5px 20px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    background-color: orange;
+    transition-property: background-color;
+    transition-duration: 1s;
+    color: #333333;
+}
+
+#resultados .contenedorFalla button:hover {
+    background-color: orangered;
+}
+
+#resultados .contenedorFalla button:active {
+    transform: translateY(1.5px);
+}
+
+#resultados .contenedorFalla h3 {
+    user-select: text;
+    color: #9D2D22;
+}
+
+#resultados .contenedorFalla form {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 250px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+#resultados .contenedorFalla form label {
+    background-color: initial;
+    border: 0;
+    font-size: 30px;
+    color: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    transition: 0.5s all;
+    cursor: pointer;
+}
+
+#resultados .contenedorFalla form label:hover {
+    cursor: pointer;
+    color: #ffa400;
+    transform: translateX(5px) translateY(5px);
+}
+
+#resultados .contenedorFalla form label:nth-child(1):hover ~ button {
+    color: #ffa400;
+    transform: translateX(10px) translateY(5px);
+}
+
+#resultados .contenedorFalla form label:nth-child(2):hover ~ button {
+    color: #ffa400;
+    transform: translateX(10px) translateY(5px);
+}
+
+#resultados .contenedorFalla form label:nth-child(3):hover ~ button {
+    color: #ffa400;
+    transform: translateX(10px) translateY(5px);
+}
+
+#resultados .contenedorFalla form label:nth-child(4):hover ~ button {
+    color: #ffa400;
+    transform: translateX(10px) translateY(5px);
+}
+
+#resultados .contenedorFalla form label:nth-child(5):hover ~ button {
+    color: #ffa400;
+    transform: translateX(10px) translateY(5px);
+}
+
+#resultados .contenedorFalla form input[type="radio"] {
+    display: none;
+}
+
+#resultados .contenedorFalla form input[type="radio"]:checked ~ label {
+    color: orange;
+}
