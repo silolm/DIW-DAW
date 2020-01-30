@@ -160,8 +160,8 @@ function saveData() {
         return response.json();
         // Y entonces
     }).then(busqueda => {
-        // me guardo la información proporcionado por la URL y la almaceno en un JSON
-        // que he creado para acceder a ella por el nombre que deseo...
+          // la funcion reduce itera cada elemento del Json que le asignamos en este caso GAMES
+        // y acumula el valor retornado por la función d¡flecha en el buffer
         busquedaDeFallas = busqueda.features.reduce((buffer, element) => buffer.concat([
             {
                 id: element.properties.id,
@@ -180,7 +180,7 @@ function saveData() {
                 boceto: element.properties.boceto_i,
                 coordenadas: element.geometry.coordinates,
                 infantil: true
-            }]), []);
+            }]), [/*estado inicial del acumulador (buffer)*/]);
 
         busquedaActual = busquedaDeFallas;
     });
