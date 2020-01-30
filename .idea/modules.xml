@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/DIW-DAW.iml" filepath="$PROJECT_DIR$/.idea/DIW-DAW.iml" />
       <module fileurl="file://$PROJECT_DIR$/../DWEC-DAW/.idea/DWEC-DAW.iml" filepath="$PROJECT_DIR$/../DWEC-DAW/.idea/DWEC-DAW.iml" />
+      <module fileurl="file:///var/www/html/DragoAndDrop/.idea/DragoAndDrop.iml" filepath="/var/www/html/DragoAndDrop/.idea/DragoAndDrop.iml" />
     </modules>
   </component>
 </project>

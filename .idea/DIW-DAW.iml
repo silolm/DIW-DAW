@@ -12,5 +12,6 @@
     <orderEntry type="library" name="leaflet" level="application" />
     <orderEntry type="library" name="proj4" level="application" />
     <orderEntry type="library" name="all" level="application" />
+    <orderEntry type="module" module-name="DragoAndDrop" />
   </component>
 </module>
