@@ -160,7 +160,7 @@ function saveData() {
         return response.json();
         // Y entonces
     }).then(busqueda => {
-          // la funcion reduce itera cada elemento del Json que le asignamos en este caso GAMES
+         // la funcion reduce itera cada elemento del Json que le asignamos en este caso GAMES
         // y acumula el valor retornado por la función d¡flecha en el buffer
         busquedaDeFallas = busqueda.features.reduce((buffer, element) => buffer.concat([
             {
