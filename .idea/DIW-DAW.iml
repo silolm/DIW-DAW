@@ -14,5 +14,7 @@
     <orderEntry type="library" name="all" level="application" />
     <orderEntry type="module" module-name="DragoAndDrop" />
     <orderEntry type="module" module-name="examenDAW" />
+    <orderEntry type="module" module-name="DWEC-DAW" />
+    <orderEntry type="module" module-name="DWEC-DAW" />
   </component>
 </module>
