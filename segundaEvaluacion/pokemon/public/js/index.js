@@ -2,7 +2,7 @@ let urlPokemons;
 let pokemons;
 
 async function saveUrl() {
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=20`);
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=1000`);
     const json = await response.json();
     return urlPokemons = json.results;
 }
@@ -13,12 +13,6 @@ async function savePokemons() {
         const json = await response.json();
         return {
             name: json.name,
-            moves: {
-                move1: json.moves[0].move.name,
-                move2: json.moves[1].move.name,
-                move3: json.moves[2].move.name,
-                move4: json.moves[3].move.name,
-            },
             types: json.types[0].type.name,
             weight: json.weight,
             height: json.height,
@@ -38,7 +32,6 @@ function loadPokemons() {
 
 function loadInfo(pokemon) {
     let container = document.querySelector('#pokeResults');
-    //document.querySelector('body').style.overflow = 'hidden';
 
     let caja = document.createElement('div');
     caja.id = 'pokedexBox';
@@ -71,6 +64,7 @@ function loadInfo(pokemon) {
             </article>
         </section>
     </section>
+    <img class="pokeImg" src="${pokemon.img}">
     `;
     container.appendChild(caja);
     caja.appendChild(pokedex);

@@ -14,6 +14,6 @@ fi
 # Comprobamos que todas las dependencias estan instaladas (basicamente express)
 npm install
 
-node index.js
+node index.jsx
 
 exit 0
